@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Bookings &amp; Reservations | Akshar Tours Admin</title>
+  
+  <link rel="icon" type="image/svg+xml" href="../assets/logos/logo.svg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/admin.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+  <div class="admin-layout">
+    
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="admin-sidebar-header">
+        <a href="dashboard.html">
+          <img src="../assets/logos/logo-white.svg" alt="Akshar Tours Admin" height="38">
+        </a>
+      </div>
+
+      <div class="admin-sidebar-menu">
+        <div class="admin-nav-category">Main Dashboard</div>
+        <a href="dashboard.html" class="admin-nav-item">
+          <i class="bi bi-speedometer2"></i>
+          <span>Overview</span>
+        </a>
+
+        <div class="admin-nav-category">Inventory &amp; Tours</div>
+        <a href="packages.html" class="admin-nav-item">
+          <i class="bi bi-pin-map-fill"></i>
+          <span>Tour Packages</span>
+        </a>
+        <a href="hotels.html" class="admin-nav-item">
+          <i class="bi bi-building"></i>
+          <span>Luxury Hotels</span>
+        </a>
+
+        <div class="admin-nav-category">Operations</div>
+        <a href="bookings.html" class="admin-nav-item active">
+          <i class="bi bi-ticket-perforated"></i>
+          <span>Bookings &amp; Status</span>
+        </a>
+        <a href="customers.html" class="admin-nav-item">
+          <i class="bi bi-people"></i>
+          <span>Customers</span>
+        </a>
+
+        <div class="admin-nav-category">System</div>
+        <a href="../index.html" target="_blank" class="admin-nav-item">
+          <i class="bi bi-box-arrow-up-right"></i>
+          <span>View Public Site</span>
+        </a>
+      </div>
+
+      <div class="admin-sidebar-footer">
+        <div class="admin-user-profile">
+          <div class="admin-user-avatar">AD</div>
+          <div class="flex-grow-1 overflow-hidden">
+            <div class="fw-bold text-white small text-truncate">Administrator</div>
+            <div class="text-white-50 small text-truncate">admin@akshartours.com</div>
+          </div>
+          <button class="btn btn-sm btn-link text-danger p-0" onclick="logoutUser('login.html')">
+            <i class="bi bi-box-arrow-right fs-5"></i>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="admin-main">
+      
+      <!-- Top Navbar -->
+      <header class="admin-header">
+        <div class="d-flex align-items-center gap-3">
+          <button class="btn btn-sm btn-light d-lg-none" type="button" onclick="document.getElementById('adminSidebar').classList.toggle('show')">
+            <i class="bi bi-list fs-5"></i>
+          </button>
+          <h5 class="fw-bold text-navy mb-0">Manage Bookings &amp; Update Status</h5>
+        </div>
+
+        <div class="d-flex align-items-center gap-2">
+          <span class="badge bg-gold text-dark" id="admin-bookings-count">Loading...</span>
+        </div>
+      </header>
+
+      <div class="p-4 p-md-5">
+        
+        <div class="admin-table-card">
+          <div class="admin-table-card-header">
+            <div class="d-flex align-items-center gap-3 flex-wrap">
+              <div class="btn-group btn-group-sm">
+                <button type="button" class="btn btn-outline-navy active" id="filter-b-all" onclick="filterBookingsTable('all')">All</button>
+                <button type="button" class="btn btn-outline-navy" id="filter-b-pending" onclick="filterBookingsTable('pending')">Pending</button>
+                <button type="button" class="btn btn-outline-navy" id="filter-b-confirmed" onclick="filterBookingsTable('confirmed')">Confirmed</button>
+                <button type="button" class="btn btn-outline-navy" id="filter-b-cancelled" onclick="filterBookingsTable('cancelled')">Cancelled</button>
+              </div>
+            </div>
+
+            <div class="input-group" style="max-width: 320px;">
+              <span class="input-group-text bg-light"><i class="bi bi-search"></i></span>
+              <input type="text" id="admin-booking-search" class="form-control form-control-sm" placeholder="Search ID, customer, email..." oninput="searchBookingsTable(this.value)">
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table admin-table">
+              <thead>
+                <tr>
+                  <th>Booking ID</th>
+                  <th>Customer Information</th>
+                  <th>Item / Tour Title</th>
+                  <th>Date</th>
+                  <th>Pax</th>
+                  <th>Total Fare</th>
+                  <th>Current Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="admin-bookings-tbody">
+                <!-- Rendered by js/admin.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/booking.js"></script>
+  <script src="../js/admin.js"></script>
+
+  <script>
+    let activeStatus = 'all';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initAdminAuth('../');
+      renderAdminBookingsTable('all');
+    });
+
+    function filterBookingsTable(status) {
+      activeStatus = status;
+      document.querySelectorAll('.btn-group .btn').forEach(b => b.classList.remove('active'));
+      document.getElementById(`filter-b-${status}`).classList.add('active');
+      const searchKw = document.getElementById('admin-booking-search').value.trim();
+      renderAdminBookingsTable(status, searchKw);
+    }
+
+    function searchBookingsTable(kw) {
+      renderAdminBookingsTable(activeStatus, kw);
+    }
+  </script>
+</body>
+</html>

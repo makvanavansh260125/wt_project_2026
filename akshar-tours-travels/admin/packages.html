@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Tour Packages | Akshar Tours Admin</title>
+  
+  <link rel="icon" type="image/svg+xml" href="../assets/logos/logo.svg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/admin.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+  <div class="admin-layout">
+    
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="admin-sidebar-header">
+        <a href="dashboard.html">
+          <img src="../assets/logos/logo-white.svg" alt="Akshar Tours Admin" height="38">
+        </a>
+      </div>
+
+      <div class="admin-sidebar-menu">
+        <div class="admin-nav-category">Main Dashboard</div>
+        <a href="dashboard.html" class="admin-nav-item">
+          <i class="bi bi-speedometer2"></i>
+          <span>Overview</span>
+        </a>
+
+        <div class="admin-nav-category">Inventory &amp; Tours</div>
+        <a href="packages.html" class="admin-nav-item active">
+          <i class="bi bi-pin-map-fill"></i>
+          <span>Tour Packages</span>
+        </a>
+        <a href="hotels.html" class="admin-nav-item">
+          <i class="bi bi-building"></i>
+          <span>Luxury Hotels</span>
+        </a>
+
+        <div class="admin-nav-category">Operations</div>
+        <a href="bookings.html" class="admin-nav-item">
+          <i class="bi bi-ticket-perforated"></i>
+          <span>Bookings &amp; Status</span>
+        </a>
+        <a href="customers.html" class="admin-nav-item">
+          <i class="bi bi-people"></i>
+          <span>Customers</span>
+        </a>
+
+        <div class="admin-nav-category">System</div>
+        <a href="../index.html" target="_blank" class="admin-nav-item">
+          <i class="bi bi-box-arrow-up-right"></i>
+          <span>View Public Site</span>
+        </a>
+      </div>
+
+      <div class="admin-sidebar-footer">
+        <div class="admin-user-profile">
+          <div class="admin-user-avatar">AD</div>
+          <div class="flex-grow-1 overflow-hidden">
+            <div class="fw-bold text-white small text-truncate">Administrator</div>
+            <div class="text-white-50 small text-truncate">admin@akshartours.com</div>
+          </div>
+          <button class="btn btn-sm btn-link text-danger p-0" onclick="logoutUser('login.html')">
+            <i class="bi bi-box-arrow-right fs-5"></i>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="admin-main">
+      
+      <!-- Top Navbar -->
+      <header class="admin-header">
+        <div class="d-flex align-items-center gap-3">
+          <button class="btn btn-sm btn-light d-lg-none" type="button" onclick="document.getElementById('adminSidebar').classList.toggle('show')">
+            <i class="bi bi-list fs-5"></i>
+          </button>
+          <h5 class="fw-bold text-navy mb-0">Manage Tour Packages</h5>
+        </div>
+
+        <button class="btn btn-gold btn-sm" onclick="openAddPackageModal()">
+          <i class="bi bi-plus-lg me-1"></i> Add New Package
+        </button>
+      </header>
+
+      <!-- Body Content -->
+      <div class="p-4 p-md-5">
+        
+        <!-- Filter Toolbar -->
+        <div class="admin-table-card">
+          <div class="admin-table-card-header">
+            <div class="d-flex align-items-center gap-3 flex-wrap">
+              <div class="btn-group btn-group-sm">
+                <button type="button" class="btn btn-outline-navy active" id="filter-all" onclick="filterTable('all')">All Packages</button>
+                <button type="button" class="btn btn-outline-navy" id="filter-india" onclick="filterTable('india')">India (30)</button>
+                <button type="button" class="btn btn-outline-navy" id="filter-intl" onclick="filterTable('international')">International (25)</button>
+              </div>
+              <span class="badge bg-navy text-gold" id="admin-packages-count">Loading...</span>
+            </div>
+
+            <div class="input-group" style="max-width: 280px;">
+              <span class="input-group-text bg-light"><i class="bi bi-search"></i></span>
+              <input type="text" id="admin-pkg-search" class="form-control form-control-sm" placeholder="Search title or destination..." oninput="handleSearch(this.value)">
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table admin-table">
+              <thead>
+                <tr>
+                  <th>Photo</th>
+                  <th>ID</th>
+                  <th>Package Name &amp; Destination</th>
+                  <th>Duration</th>
+                  <th>Base Price</th>
+                  <th>Category</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="admin-packages-tbody">
+                <!-- Rendered by js/admin.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ADD / EDIT PACKAGE MODAL -->
+  <div class="modal fade" id="packageModal" tabindex="-1" aria-labelledby="packageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content rounded-4 border-0 shadow-lg">
+        <div class="modal-header bg-navy text-white">
+          <h5 class="modal-title fw-bold" id="packageModalLabel">Add New Travel Package</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form id="package-form" onsubmit="savePackageForm(event)">
+          <input type="hidden" name="packageId" value="">
+          
+          <div class="modal-body p-4">
+            <div class="row g-3">
+              <div class="col-md-8">
+                <label class="form-label fw-bold small text-navy">Package Title <span class="text-danger">*</span></label>
+                <input type="text" name="packageTitle" class="form-control" placeholder="e.g. Royal Rajasthan Heritage Odyssey" required>
+              </div>
+              <div class="col-md-4">
+                <label class="form-label fw-bold small text-navy">Circuit Type</label>
+                <select name="packageTypeSelect" class="form-select">
+                  <option value="india">Indian Tour (Flight/Train/Bus)</option>
+                  <option value="international">International Tour (Flight/Cruise)</option>
+                </select>
+              </div>
+
+              <div class="col-md-8">
+                <label class="form-label fw-bold small text-navy">Destinations Covered <span class="text-danger">*</span></label>
+                <input type="text" name="packageDestination" class="form-control" placeholder="e.g. Jaipur, Jodhpur, Jaisalmer" required>
+              </div>
+              <div class="col-md-4">
+                <label class="form-label fw-bold small text-navy">Theme / Category</label>
+                <select name="packageCategory" class="form-select">
+                  <option value="Heritage">Heritage &amp; Culture</option>
+                  <option value="Nature & Hill">Nature &amp; Hill Stations</option>
+                  <option value="Romantic">Romantic &amp; Honeymoon</option>
+                  <option value="Spiritual">Spiritual &amp; Pilgrimage</option>
+                  <option value="Beach">Beach &amp; Coastal</option>
+                  <option value="Adventure">Adventure &amp; Wildlife</option>
+                  <option value="Luxury">Luxury &amp; Modern</option>
+                </select>
+              </div>
+
+              <div class="col-md-4">
+                <label class="form-label fw-bold small text-navy">Days <span class="text-danger">*</span></label>
+                <input type="number" name="packageDays" class="form-control" min="1" max="30" value="6" required>
+              </div>
+              <div class="col-md-4">
+                <label class="form-label fw-bold small text-navy">Nights <span class="text-danger">*</span></label>
+                <input type="number" name="packageNights" class="form-control" min="0" max="30" value="5" required>
+              </div>
+              <div class="col-md-4">
+                <label class="form-label fw-bold small text-navy">Base Price (₹ / person) <span class="text-danger">*</span></label>
+                <input type="number" name="packageBasePrice" class="form-control" min="1000" step="500" value="25000" required>
+              </div>
+
+              <div class="col-12">
+                <label class="form-label fw-bold small text-navy">Photo Image URL</label>
+                <input type="url" name="packageImage" class="form-control" placeholder="https://images.unsplash.com/photo-...">
+              </div>
+
+              <div class="col-12">
+                <label class="form-label fw-bold small text-navy">Package Overview</label>
+                <textarea name="packageOverview" class="form-control" rows="2" placeholder="Brief enticing description of this travel package"></textarea>
+              </div>
+
+              <div class="col-md-4">
+                <label class="form-label fw-bold small text-navy">Hotel Accommodation</label>
+                <input type="text" name="packageHotel" class="form-control" placeholder="4-Star Deluxe Resorts">
+              </div>
+              <div class="col-md-4">
+                <label class="form-label fw-bold small text-navy">Food &amp; Dining Plan</label>
+                <input type="text" name="packageFood" class="form-control" placeholder="Daily Buffet Breakfast & Dinner">
+              </div>
+              <div class="col-md-4">
+                <label class="form-label fw-bold small text-navy">Sightseeing Details</label>
+                <input type="text" name="packageSightseeing" class="form-control" placeholder="Monuments, Forts & Safaris">
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer bg-light">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-gold px-4 fw-bold">Save Package</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/booking.js"></script>
+  <script src="../js/hotels.js"></script>
+  <script src="../js/packages.js"></script>
+  <script src="../js/admin.js"></script>
+
+  <script>
+    let currentFilter = 'all';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initAdminAuth('../');
+      renderAdminPackagesTable('all');
+
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('action') === 'new') {
+        openAddPackageModal();
+      }
+    });
+
+    function filterTable(type) {
+      currentFilter = type;
+      document.querySelectorAll('.btn-group .btn').forEach(b => b.classList.remove('active'));
+      document.getElementById(`filter-${type === 'international' ? 'intl' : type}`).classList.add('active');
+      const searchKw = document.getElementById('admin-pkg-search').value.trim();
+      renderAdminPackagesTable(type, searchKw);
+    }
+
+    function handleSearch(kw) {
+      renderAdminPackagesTable(currentFilter, kw);
+    }
+  </script>
+</body>
+</html>

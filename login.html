@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Akshar Tours &amp; Travels</title>
+  <meta name="description" content="Sign in to your Akshar Tours & Travels account to manage bookings, view travel vouchers, and explore exclusive holiday packages.">
+  
+  <link rel="icon" type="image/svg+xml" href="assets/logos/logo.svg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="bg-light">
+
+  <!-- Minimal Brand Header -->
+  <header class="py-3 bg-white border-bottom shadow-sm">
+    <div class="container d-flex justify-content-between align-items-center">
+      <a href="index.html">
+        <img src="assets/logos/logo.svg" alt="Akshar Tours &amp; Travels" height="44">
+      </a>
+      <a href="index.html" class="btn btn-outline-navy btn-sm">
+        <i class="bi bi-arrow-left me-1"></i> Back to Home
+      </a>
+    </div>
+  </header>
+
+  <main class="py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-8">
+          
+          <!-- Demonstration Notice Banner -->
+          <div class="alert alert-warning py-2 px-3 mb-4 rounded-3 d-flex align-items-center gap-2 small border-warning">
+            <i class="bi bi-info-circle-fill fs-5 text-warning"></i>
+            <div>
+              <strong>Frontend Demo Authentication:</strong> Data is saved in browser LocalStorage. Use the quick demo buttons below to fill test credentials.
+            </div>
+          </div>
+
+          <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+            <!-- Tabs for Customer vs Admin -->
+            <div class="bg-navy p-3 text-white">
+              <ul class="nav nav-pills nav-justified" id="loginTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active text-white fw-bold" id="customer-tab" data-bs-toggle="pill" data-bs-target="#tab-customer" type="button" role="tab">
+                    <i class="bi bi-person-circle me-1"></i> Customer Login
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link text-white fw-bold" id="admin-tab" data-bs-toggle="pill" data-bs-target="#tab-admin" type="button" role="tab">
+                    <i class="bi bi-shield-lock-fill me-1"></i> Admin Portal
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            <div class="card-body p-4 p-md-5">
+              <div class="tab-content" id="loginTabsContent">
+                
+                <!-- CUSTOMER LOGIN TAB -->
+                <div class="tab-pane fade show active" id="tab-customer" role="tabpanel">
+                  <div class="text-center mb-4">
+                    <h3 class="fw-bold text-navy mb-1">Welcome Back!</h3>
+                    <p class="text-muted small">Sign in to manage your bookings and wishlist</p>
+                  </div>
+
+                  <form id="customer-login-form" onsubmit="handleLogin(event, 'customer')">
+                    <div class="mb-3">
+                      <label class="form-label fw-bold small text-navy">Email or 10-Digit Mobile Number</label>
+                      <div class="input-group">
+                        <span class="input-group-text bg-light"><i class="bi bi-envelope"></i></span>
+                        <input type="text" name="loginId" id="customer-login-id" class="form-control" placeholder="name@example.com or 9876543210" required>
+                      </div>
+                    </div>
+
+                    <div class="mb-3">
+                      <div class="d-flex justify-content-between">
+                        <label class="form-label fw-bold small text-navy">Password</label>
+                        <a href="forgot-password.html" class="small text-royal">Forgot Password?</a>
+                      </div>
+                      <div class="input-group">
+                        <span class="input-group-text bg-light"><i class="bi bi-key"></i></span>
+                        <input type="password" name="password" id="customer-password" class="form-control" placeholder="Enter password" required>
+                      </div>
+                    </div>
+
+                    <div class="mb-4 form-check">
+                      <input type="checkbox" class="form-check-input" id="customer-remember" name="rememberMe" checked>
+                      <label class="form-check-label small text-muted" for="customer-remember">Remember my session</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-gold btn-lg w-100 py-2 fw-bold mb-3">
+                      <i class="bi bi-box-arrow-in-right me-1"></i> Sign In to Dashboard
+                    </button>
+                  </form>
+
+                  <!-- Quick Demo Filler -->
+                  <div class="p-3 bg-light rounded-3 text-center border">
+                    <small class="text-muted d-block mb-1">Click to auto-fill demo customer:</small>
+                    <button type="button" class="btn btn-sm btn-outline-navy" onclick="fillDemoCustomer()">
+                      <i class="bi bi-magic me-1"></i> Auto-fill Demo Customer (Rahul Sharma)
+                    </button>
+                  </div>
+
+                  <div class="text-center mt-4 pt-3 border-top small text-muted">
+                    Don't have an account yet? <a href="register.html" class="fw-bold text-royal">Register Here</a>
+                  </div>
+                </div>
+
+                <!-- ADMIN LOGIN TAB -->
+                <div class="tab-pane fade" id="tab-admin" role="tabpanel">
+                  <div class="text-center mb-4">
+                    <span class="badge bg-gold text-dark mb-2">STAFF &amp; MANAGEMENT ONLY</span>
+                    <h3 class="fw-bold text-navy mb-1">Administrator Access</h3>
+                    <p class="text-muted small">Manage packages, hotels, bookings &amp; customers</p>
+                  </div>
+
+                  <form id="admin-login-form" onsubmit="handleLogin(event, 'admin')">
+                    <div class="mb-3">
+                      <label class="form-label fw-bold small text-navy">Admin Email / Username</label>
+                      <div class="input-group">
+                        <span class="input-group-text bg-light"><i class="bi bi-shield-shaded"></i></span>
+                        <input type="text" name="loginId" id="admin-login-id" class="form-control" placeholder="admin@akshartours.com" required>
+                      </div>
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label fw-bold small text-navy">Admin Password</label>
+                      <div class="input-group">
+                        <span class="input-group-text bg-light"><i class="bi bi-lock"></i></span>
+                        <input type="password" name="password" id="admin-password" class="form-control" placeholder="Enter admin password" required>
+                      </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-navy btn-lg w-100 py-2 fw-bold mb-3">
+                      <i class="bi bi-shield-lock-fill text-gold me-1"></i> Enter Admin Control Center
+                    </button>
+                  </form>
+
+                  <!-- Quick Demo Filler for Admin -->
+                  <div class="p-3 bg-light rounded-3 text-center border">
+                    <small class="text-muted d-block mb-1">Click to auto-fill demo admin credentials:</small>
+                    <button type="button" class="btn btn-sm btn-outline-warning text-dark" onclick="fillDemoAdmin()">
+                      <i class="bi bi-shield-check me-1"></i> Auto-fill Admin Credentials
+                    </button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+
+  <script>
+    function fillDemoCustomer() {
+      document.getElementById('customer-login-id').value = 'rahul.sharma@example.com';
+      document.getElementById('customer-password').value = 'customer123';
+      showToast('Demo Customer credentials filled!', 'info');
+    }
+
+    function fillDemoAdmin() {
+      document.getElementById('admin-login-id').value = 'admin@akshartours.com';
+      document.getElementById('admin-password').value = 'admin123';
+      showToast('Demo Admin credentials filled!', 'info');
+    }
+
+    // Auto-switch to admin tab if URL has ?tab=admin
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('tab') === 'admin') {
+        const triggerEl = document.querySelector('#admin-tab');
+        bootstrap.Tab.getInstance(triggerEl)?.show() || new bootstrap.Tab(triggerEl).show();
+      }
+    });
+  </script>
+</body>
+</html>

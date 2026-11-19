@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indian Railway &amp; Train Reservations | Akshar Tours &amp; Travels</title>
+  
+  <link rel="icon" type="image/svg+xml" href="../assets/logos/logo.svg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body class="bg-light">
+
+  <div class="top-bar">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div>
+        <span class="contact-item"><i class="bi bi-telephone-fill"></i> +91 79 2656 7890</span>
+        <span class="contact-item"><i class="bi bi-envelope-fill"></i> info@akshartours.com</span>
+      </div>
+      <div>
+        <a href="../admin/login.html" class="text-white-50 small"><i class="bi bi-shield-lock me-1"></i> Admin Portal</a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-expand-lg navbar-akshar sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">
+        <img src="../assets/logos/logo.svg" alt="Akshar Tours &amp; Travels" height="48">
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTrain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTrain">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="../packages/india.html">India Tours</a></li>
+          <li class="nav-item"><a class="nav-link" href="../packages/international.html">International Tours</a></li>
+          <li class="nav-item"><a class="nav-link" href="../hotels/hotels.html">Hotels</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Transportation</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="flights.html"><i class="bi bi-airplane-fill text-primary"></i> Flights</a></li>
+              <li><a class="dropdown-item active" href="trains.html"><i class="bi bi-train-front-fill text-danger"></i> Trains</a></li>
+              <li><a class="dropdown-item" href="buses.html"><i class="bi bi-bus-front-fill text-success"></i> Buses</a></li>
+              <li><a class="dropdown-item" href="cruises.html"><i class="bi bi-tsunami text-info"></i> Cruises</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="../contact.html">Contact Us</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-3">
+          <a href="../customer/dashboard.html#wishlist" class="wishlist-btn-nav">
+            <i class="bi bi-heart fs-5"></i>
+            <span class="wishlist-badge wishlist-count-badge" style="display:none;">0</span>
+          </a>
+          <div id="navbar-auth-section"></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-banner" style="background: linear-gradient(135deg, rgba(6, 16, 30, 0.85) 0%, rgba(10, 25, 47, 0.78) 100%), url('https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;">
+    <div class="container text-center">
+      <span class="badge bg-gold text-dark mb-2 px-3 py-2 fw-bold text-uppercase">Authorized Rail Booking Partner</span>
+      <h1 class="page-banner-title">Train Ticket Reservations</h1>
+      <p class="text-white-50 mx-auto" style="max-width: 650px;">
+        Reserve berths on Vande Bharat Express, Rajdhani, Shatabdi, and Superfast express trains with instant PNR generation and confirmed seat assistance.
+      </p>
+      <ul class="breadcrumb-akshar justify-content-center mt-3">
+        <li><a href="../index.html">Home</a></li>
+        <li class="active">Train Booking</li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="py-5">
+    <div class="container">
+      
+      <!-- Train Search Box -->
+      <div class="card border-0 shadow-lg rounded-4 p-4 p-md-5 mb-5 bg-white">
+        <form onsubmit="event.preventDefault(); showToast('Fetching live Indian Railways berth availability...', 'info');">
+          <div class="row g-3 align-items-end">
+            <div class="col-md-3">
+              <label class="form-label fw-bold small text-navy"><i class="bi bi-geo-alt-fill text-danger me-1"></i> Origin Station</label>
+              <select class="form-select" id="train-from">
+                <option value="ADI" selected>Ahmedabad Jn (ADI)</option>
+                <option value="MMCT">Mumbai Central (MMCT)</option>
+                <option value="NDLS">New Delhi (NDLS)</option>
+                <option value="JP">Jaipur Jn (JP)</option>
+                <option value="SBC">KSR Bengaluru (SBC)</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <label class="form-label fw-bold small text-navy"><i class="bi bi-pin-map-fill text-success me-1"></i> Destination Station</label>
+              <select class="form-select" id="train-to">
+                <option value="BCT" selected>Mumbai Central (MMCT)</option>
+                <option value="NDLS">New Delhi (NDLS)</option>
+                <option value="SVDK">Shri Mata Vaishno Devi Katra (SVDK)</option>
+                <option value="BSB">Varanasi Jn (BSB)</option>
+                <option value="MAO">Madgaon Goa (MAO)</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <label class="form-label fw-bold small text-navy"><i class="bi bi-calendar-event text-primary me-1"></i> Journey Date</label>
+              <input type="date" class="form-control" id="train-date" required>
+            </div>
+            <div class="col-md-2">
+              <label class="form-label fw-bold small text-navy"><i class="bi bi-shield-check text-gold me-1"></i> Quota</label>
+              <select class="form-select" id="train-quota">
+                <option value="GN" selected>General (GN)</option>
+                <option value="TQ">Tatkal (TQ)</option>
+                <option value="LD">Ladies (LD)</option>
+                <option value="SS">Senior Citizen</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <button type="submit" class="btn btn-gold w-100 py-2">
+                <i class="bi bi-search me-1"></i> Search Trains
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Train Schedules Results -->
+      <h4 class="fw-bold text-navy mb-3">Popular Express Trains on Route</h4>
+
+      <div class="row g-4">
+        <!-- Train 1: Vande Bharat -->
+        <div class="col-12">
+          <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
+            <div class="row align-items-center g-3">
+              <div class="col-md-4">
+                <span class="badge bg-danger text-white mb-1">HIGH SPEED VANDE BHARAT</span>
+                <h5 class="fw-bold text-navy mb-1">20902 • Vande Bharat Express</h5>
+                <div class="text-muted small">Runs on: Mon, Tue, Wed, Thu, Fri, Sat</div>
+              </div>
+              <div class="col-md-5">
+                <div class="d-flex align-items-center justify-content-between text-center">
+                  <div>
+                    <div class="fs-4 fw-bold text-navy">15:00</div>
+                    <div class="small text-muted">ADI (Ahmedabad)</div>
+                  </div>
+                  <div class="px-3 flex-grow-1">
+                    <div class="small text-muted">05h 25m</div>
+                    <div class="position-relative my-1">
+                      <hr class="m-0" style="border-top: 2px dashed #CBD5E1;">
+                      <i class="bi bi-train-front-fill text-danger position-absolute top-50 start-50 translate-middle bg-white px-2"></i>
+                    </div>
+                    <div class="badge bg-success bg-opacity-10 text-success small">High Speed (130 km/h)</div>
+                  </div>
+                  <div>
+                    <div class="fs-4 fw-bold text-navy">20:25</div>
+                    <div class="small text-muted">MMCT (Mumbai Central)</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="d-flex gap-2">
+                  <div class="p-2 border rounded-3 text-center flex-grow-1 bg-light">
+                    <div class="fw-bold small">AC Chair (CC)</div>
+                    <div class="text-success small fw-bold">AVL 48</div>
+                    <div class="fw-bold text-navy">₹1,420</div>
+                    <button class="btn btn-navy btn-sm mt-1 w-100 py-1" onclick="bookTrainDirect('Vande Bharat Express (CC)', 'Ahmedabad to Mumbai', 1420)">Book</button>
+                  </div>
+                  <div class="p-2 border rounded-3 text-center flex-grow-1 bg-light">
+                    <div class="fw-bold small">Exec. Chair (EC)</div>
+                    <div class="text-success small fw-bold">AVL 16</div>
+                    <div class="fw-bold text-navy">₹2,630</div>
+                    <button class="btn btn-gold btn-sm mt-1 w-100 py-1" onclick="bookTrainDirect('Vande Bharat Express (EC)', 'Ahmedabad to Mumbai', 2630)">Book</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Train 2: Tejas Express -->
+        <div class="col-12">
+          <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
+            <div class="row align-items-center g-3">
+              <div class="col-md-4">
+                <span class="badge bg-warning text-dark mb-1">IRCTC CORPORATE TRAIN</span>
+                <h5 class="fw-bold text-navy mb-1">82902 • Ahmedabad Mumbai Tejas</h5>
+                <div class="text-muted small">Runs on: All Days except Thursday</div>
+              </div>
+              <div class="col-md-5">
+                <div class="d-flex align-items-center justify-content-between text-center">
+                  <div>
+                    <div class="fs-4 fw-bold text-navy">06:40</div>
+                    <div class="small text-muted">ADI (Ahmedabad)</div>
+                  </div>
+                  <div class="px-3 flex-grow-1">
+                    <div class="small text-muted">06h 25m</div>
+                    <div class="position-relative my-1">
+                      <hr class="m-0" style="border-top: 2px dashed #CBD5E1;">
+                      <i class="bi bi-train-front-fill text-warning position-absolute top-50 start-50 translate-middle bg-white px-2"></i>
+                    </div>
+                    <div class="badge bg-primary bg-opacity-10 text-primary small">Hospitality Onboard</div>
+                  </div>
+                  <div>
+                    <div class="fs-4 fw-bold text-navy">13:05</div>
+                    <div class="small text-muted">MMCT (Mumbai Central)</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="d-flex gap-2">
+                  <div class="p-2 border rounded-3 text-center flex-grow-1 bg-light">
+                    <div class="fw-bold small">AC Chair (CC)</div>
+                    <div class="text-success small fw-bold">AVL 62</div>
+                    <div class="fw-bold text-navy">₹1,380</div>
+                    <button class="btn btn-navy btn-sm mt-1 w-100 py-1" onclick="bookTrainDirect('Tejas Express (CC)', 'Ahmedabad to Mumbai', 1380)">Book</button>
+                  </div>
+                  <div class="p-2 border rounded-3 text-center flex-grow-1 bg-light">
+                    <div class="fw-bold small">Exec. Chair (EC)</div>
+                    <div class="text-success small fw-bold">AVL 22</div>
+                    <div class="fw-bold text-navy">₹2,540</div>
+                    <button class="btn btn-gold btn-sm mt-1 w-100 py-1" onclick="bookTrainDirect('Tejas Express (EC)', 'Ahmedabad to Mumbai', 2540)">Book</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Train 3: Karnavati Express -->
+        <div class="col-12">
+          <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
+            <div class="row align-items-center g-3">
+              <div class="col-md-4">
+                <span class="badge bg-secondary mb-1">SUPERFAST EXPRESS</span>
+                <h5 class="fw-bold text-navy mb-1">12934 • Karnavati Superfast Express</h5>
+                <div class="text-muted small">Runs: Daily (All 7 Days)</div>
+              </div>
+              <div class="col-md-5">
+                <div class="d-flex align-items-center justify-content-between text-center">
+                  <div>
+                    <div class="fs-4 fw-bold text-navy">05:00</div>
+                    <div class="small text-muted">ADI (Ahmedabad)</div>
+                  </div>
+                  <div class="px-3 flex-grow-1">
+                    <div class="small text-muted">07h 35m</div>
+                    <div class="position-relative my-1">
+                      <hr class="m-0" style="border-top: 2px dashed #CBD5E1;">
+                      <i class="bi bi-train-front-fill text-secondary position-absolute top-50 start-50 translate-middle bg-white px-2"></i>
+                    </div>
+                    <div class="badge bg-light text-dark border small">Budget Friendly</div>
+                  </div>
+                  <div>
+                    <div class="fs-4 fw-bold text-navy">12:35</div>
+                    <div class="small text-muted">MMCT (Mumbai Central)</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="d-flex gap-2">
+                  <div class="p-2 border rounded-3 text-center flex-grow-1 bg-light">
+                    <div class="fw-bold small">AC Chair (CC)</div>
+                    <div class="text-success small fw-bold">AVL 84</div>
+                    <div class="fw-bold text-navy">₹780</div>
+                    <button class="btn btn-navy btn-sm mt-1 w-100 py-1" onclick="bookTrainDirect('Karnavati Express (CC)', 'Ahmedabad to Mumbai', 780)">Book</button>
+                  </div>
+                  <div class="p-2 border rounded-3 text-center flex-grow-1 bg-light">
+                    <div class="fw-bold small">2S Second Seating</div>
+                    <div class="text-success small fw-bold">AVL 110</div>
+                    <div class="fw-bold text-navy">₹235</div>
+                    <button class="btn btn-gold btn-sm mt-1 w-100 py-1" onclick="bookTrainDirect('Karnavati Express (2S)', 'Ahmedabad to Mumbai', 235)">Book</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer-akshar">
+    <div class="container text-center">
+      &copy; 2026 <strong>Akshar Tours &amp; Travels</strong>. All Rights Reserved.
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/booking.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      syncNavbarAuth('../');
+      const d = new Date();
+      d.setDate(d.getDate() + 5);
+      document.getElementById('train-date').value = d.toISOString().split('T')[0];
+    });
+
+    function bookTrainDirect(title, destination, price) {
+      const user = getCurrentUser();
+      const bookingId = generateBookingId();
+
+      const newBooking = {
+        bookingId: bookingId,
+        itemType: 'train',
+        itemId: 'TRN-' + Math.floor(100 + Math.random() * 900),
+        title: title,
+        destination: destination,
+        image: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop',
+        userEmail: user ? user.email : 'guest@example.com',
+        customerName: user ? user.name : 'Valued Passenger',
+        customerMobile: user ? user.mobile : '+91 98765 43210',
+        customerAddress: user ? user.address : 'Gujarat, India',
+        travelDate: document.getElementById('train-date')?.value || new Date().toISOString().split('T')[0],
+        travellers: 1,
+        transportSelected: 'Train',
+        baseFare: price,
+        transportFare: 0,
+        taxes: Math.round(price * 0.05),
+        discount: 0,
+        totalAmount: price + Math.round(price * 0.05),
+        bookingStatus: 'Confirmed',
+        paymentStatus: 'Paid (Demo)',
+        bookedAt: new Date().toISOString()
+      };
+
+      saveBooking(newBooking);
+      showToast(`Train ticket request ${bookingId} confirmed!`, 'success');
+      setTimeout(() => {
+        window.location.href = `../booking/confirmation.html?id=${bookingId}`;
+      }, 1000);
+    }
+  </script>
+</body>
+</html>

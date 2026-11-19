@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Registration | Akshar Tours &amp; Travels</title>
+  <meta name="description" content="Create an account with Akshar Tours & Travels to unlock personalized travel recommendations, track booking status, and receive exclusive offers.">
+  
+  <link rel="icon" type="image/svg+xml" href="assets/logos/logo.svg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="bg-light">
+
+  <!-- Minimal Brand Header -->
+  <header class="py-3 bg-white border-bottom shadow-sm">
+    <div class="container d-flex justify-content-between align-items-center">
+      <a href="index.html">
+        <img src="assets/logos/logo.svg" alt="Akshar Tours &amp; Travels" height="44">
+      </a>
+      <a href="login.html" class="btn btn-outline-navy btn-sm">
+        <i class="bi bi-box-arrow-in-right me-1"></i> Already Registered? Login
+      </a>
+    </div>
+  </header>
+
+  <main class="py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-7 col-md-10">
+
+          <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+            <div class="bg-navy p-4 text-white text-center">
+              <span class="badge bg-gold text-dark mb-2">JOIN OUR TRAVEL COMMUNITY</span>
+              <h2 class="fw-bold mb-1">Create Your Customer Account</h2>
+              <p class="text-white-50 small mb-0">Experience effortless holiday bookings and manage all your travel vouchers in one place</p>
+            </div>
+
+            <div class="card-body p-4 p-md-5">
+              <form id="registration-form" onsubmit="return handleRegister(event)">
+                <div class="row g-3">
+                  <!-- Full Name -->
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold small text-navy">Full Name <span class="text-danger">*</span></label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light"><i class="bi bi-person"></i></span>
+                      <input type="text" name="fullName" class="form-control" placeholder="e.g. Ramesh Patel" required>
+                    </div>
+                  </div>
+
+                  <!-- Email Address -->
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold small text-navy">Email Address <span class="text-danger">*</span></label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light"><i class="bi bi-envelope"></i></span>
+                      <input type="email" name="email" class="form-control" placeholder="name@example.com" required>
+                    </div>
+                  </div>
+
+                  <!-- Mobile Number -->
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold small text-navy">Mobile Number (10 digits) <span class="text-danger">*</span></label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light">+91</span>
+                      <input type="tel" name="mobile" class="form-control" placeholder="9876543210" maxlength="10" required>
+                    </div>
+                  </div>
+
+                  <!-- Gender -->
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold small text-navy">Gender <span class="text-danger">*</span></label>
+                    <select name="gender" class="form-select" required>
+                      <option value="Male" selected>Male</option>
+                      <option value="Female">Female</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+
+                  <!-- Password -->
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold small text-navy">Password (min 6 chars) <span class="text-danger">*</span></label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light"><i class="bi bi-lock"></i></span>
+                      <input type="password" name="password" class="form-control" placeholder="Create password" minlength="6" required>
+                    </div>
+                  </div>
+
+                  <!-- Confirm Password -->
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold small text-navy">Confirm Password <span class="text-danger">*</span></label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light"><i class="bi bi-shield-check"></i></span>
+                      <input type="password" name="confirmPassword" class="form-control" placeholder="Repeat password" required>
+                    </div>
+                  </div>
+
+                  <!-- Address -->
+                  <div class="col-12">
+                    <label class="form-label fw-bold small text-navy">Postal / Billing Address <span class="text-danger">*</span></label>
+                    <textarea name="address" class="form-control" rows="2" placeholder="House/Flat number, Street, City, State, Pincode" required></textarea>
+                  </div>
+
+                  <!-- Terms and Conditions -->
+                  <div class="col-12 mt-3">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="terms" id="termsCheck" required>
+                      <label class="form-check-label small text-muted" for="termsCheck">
+                        I agree to the <a href="terms.html" target="_blank" class="text-royal">Terms &amp; Conditions</a> and <a href="privacy.html" target="_blank" class="text-royal">Privacy Policy</a> of Akshar Tours &amp; Travels.
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="col-12 mt-4">
+                    <button type="submit" class="btn btn-gold btn-lg w-100 py-3 fw-bold">
+                      <i class="bi bi-check-circle-fill me-1"></i> Register &amp; Start Exploring
+                    </button>
+                  </div>
+                </div>
+              </form>
+
+              <div class="text-center mt-4 pt-3 border-top small text-muted">
+                Already have an account? <a href="login.html" class="fw-bold text-royal">Sign In here</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

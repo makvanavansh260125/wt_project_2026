@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flight Booking &amp; Air Tickets | Akshar Tours &amp; Travels</title>
+  <meta name="description" content="Book domestic and international flights at guaranteed best fares with Akshar Tours & Travels. Air India, IndiGo, Emirates, Singapore Airlines, Qatar Airways.">
+  
+  <link rel="icon" type="image/svg+xml" href="../assets/logos/logo.svg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body class="bg-light">
+
+  <div class="top-bar">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div>
+        <span class="contact-item"><i class="bi bi-telephone-fill"></i> +91 79 2656 7890</span>
+        <span class="contact-item"><i class="bi bi-envelope-fill"></i> info@akshartours.com</span>
+      </div>
+      <div>
+        <a href="../admin/login.html" class="text-white-50 small"><i class="bi bi-shield-lock me-1"></i> Admin Portal</a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-expand-lg navbar-akshar sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">
+        <img src="../assets/logos/logo.svg" alt="Akshar Tours &amp; Travels" height="48">
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarFlight">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarFlight">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="../packages/india.html">India Tours</a></li>
+          <li class="nav-item"><a class="nav-link" href="../packages/international.html">International Tours</a></li>
+          <li class="nav-item"><a class="nav-link" href="../hotels/hotels.html">Hotels</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Transportation</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item active" href="flights.html"><i class="bi bi-airplane-fill text-primary"></i> Flights</a></li>
+              <li><a class="dropdown-item" href="trains.html"><i class="bi bi-train-front-fill text-danger"></i> Trains</a></li>
+              <li><a class="dropdown-item" href="buses.html"><i class="bi bi-bus-front-fill text-success"></i> Buses</a></li>
+              <li><a class="dropdown-item" href="cruises.html"><i class="bi bi-tsunami text-info"></i> Cruises</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="../contact.html">Contact Us</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-3">
+          <a href="../customer/dashboard.html#wishlist" class="wishlist-btn-nav">
+            <i class="bi bi-heart fs-5"></i>
+            <span class="wishlist-badge wishlist-count-badge" style="display:none;">0</span>
+          </a>
+          <div id="navbar-auth-section"></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-banner" style="background: linear-gradient(135deg, rgba(6, 16, 30, 0.85) 0%, rgba(10, 25, 47, 0.78) 100%), url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;">
+    <div class="container text-center">
+      <span class="badge bg-gold text-dark mb-2 px-3 py-2 fw-bold text-uppercase">IATA Approved Flight Reservations</span>
+      <h1 class="page-banner-title">Domestic &amp; International Flights</h1>
+      <p class="text-white-50 mx-auto" style="max-width: 650px;">
+        Compare and reserve non-stop flights with premier carriers. Free meal selection, flexible reschedule options, and guaranteed lowest convenience fees.
+      </p>
+      <ul class="breadcrumb-akshar justify-content-center mt-3">
+        <li><a href="../index.html">Home</a></li>
+        <li class="active">Flights</li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="py-5">
+    <div class="container">
+      
+      <!-- Flight Search Widget -->
+      <div class="card border-0 shadow-lg rounded-4 p-4 p-md-5 mb-5 bg-white">
+        <form id="flight-search-form" onsubmit="handleFlightSearch(event)">
+          <div class="row g-3">
+            <div class="col-md-3">
+              <label class="form-label fw-bold small text-navy"><i class="bi bi-geo-alt-fill text-danger me-1"></i> From (Origin)</label>
+              <select class="form-select" id="flight-from">
+                <option value="AMD" selected>Ahmedabad (AMD) - Sardar Vallabhbhai Patel</option>
+                <option value="BOM">Mumbai (BOM) - Chhatrapati Shivaji</option>
+                <option value="DEL">New Delhi (DEL) - Indira Gandhi Intl</option>
+                <option value="BLR">Bangalore (BLR) - Kempegowda Intl</option>
+                <option value="MAA">Chennai (MAA) - Chennai Intl</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <label class="form-label fw-bold small text-navy"><i class="bi bi-pin-map-fill text-success me-1"></i> To (Destination)</label>
+              <select class="form-select" id="flight-to">
+                <option value="DXB" selected>Dubai (DXB) - Dubai International</option>
+                <option value="GOI">Goa (GOI/GOX) - Dabolim &amp; Mopa</option>
+                <option value="SXR">Srinagar (SXR) - Sheikh ul-Alam</option>
+                <option value="SIN">Singapore (SIN) - Changi Airport</option>
+                <option value="BKK">Bangkok (BKK) - Suvarnabhumi</option>
+                <option value="ZRH">Zurich (ZRH) - Zurich Airport</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <label class="form-label fw-bold small text-navy"><i class="bi bi-calendar-event text-primary me-1"></i> Departure Date</label>
+              <input type="date" class="form-control" id="flight-date" required>
+            </div>
+            <div class="col-md-2">
+              <label class="form-label fw-bold small text-navy"><i class="bi bi-person-fill text-gold me-1"></i> Passengers &amp; Class</label>
+              <select class="form-select" id="flight-class">
+                <option value="1E" selected>1 Adult, Economy</option>
+                <option value="2E">2 Adults, Economy</option>
+                <option value="1B">1 Adult, Business</option>
+                <option value="2B">2 Adults, Business</option>
+              </select>
+            </div>
+            <div class="col-md-2 d-flex align-items-end">
+              <button type="submit" class="btn btn-gold w-100 py-2">
+                <i class="bi bi-search me-1"></i> Find Flights
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Flight Results List -->
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h4 class="fw-bold text-navy mb-0">Available Scheduled Flights</h4>
+        <span class="badge bg-navy text-gold px-3 py-2" id="flight-results-count">4 Available Options</span>
+      </div>
+
+      <div class="row g-4" id="flights-list-container">
+        
+        <!-- Flight Card 1 -->
+        <div class="col-12">
+          <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
+            <div class="row align-items-center g-3">
+              <div class="col-md-3">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="p-2 bg-light rounded-3 border text-center" style="width:50px;">
+                    <i class="bi bi-airplane-fill fs-3 text-primary"></i>
+                  </div>
+                  <div>
+                    <h5 class="fw-bold text-navy mb-0">Emirates</h5>
+                    <span class="badge bg-light text-muted border">EK-501 • Boeing 777</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="d-flex align-items-center justify-content-between text-center">
+                  <div>
+                    <div class="fs-4 fw-bold text-navy">04:30</div>
+                    <div class="small text-muted">AMD (Ahmedabad)</div>
+                  </div>
+                  <div class="px-3 flex-grow-1">
+                    <div class="small text-muted">03h 15m</div>
+                    <div class="position-relative my-1">
+                      <hr class="m-0" style="border-top: 2px dashed #CBD5E1;">
+                      <i class="bi bi-airplane-fill text-gold position-absolute top-50 start-50 translate-middle bg-white px-2"></i>
+                    </div>
+                    <div class="badge bg-success bg-opacity-10 text-success small">Non-Stop</div>
+                  </div>
+                  <div>
+                    <div class="fs-4 fw-bold text-navy">06:45</div>
+                    <div class="small text-muted">DXB (Dubai)</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2 text-center text-md-start">
+                <div class="small text-muted"><i class="bi bi-briefcase me-1"></i>30 Kg Check-in</div>
+                <div class="small text-muted"><i class="bi bi-cup-hot me-1"></i>Free Meal &amp; Drinks</div>
+              </div>
+              <div class="col-md-2 text-md-end text-center">
+                <div class="fs-4 fw-bold text-navy">₹24,800</div>
+                <div class="small text-muted mb-2">per person</div>
+                <button class="btn btn-gold btn-sm w-100" onclick="bookTransportDirect('Emirates Flight EK-501', 'Ahmedabad to Dubai', 24800, 'Flight')">
+                  Book Seat
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flight Card 2 -->
+        <div class="col-12">
+          <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
+            <div class="row align-items-center g-3">
+              <div class="col-md-3">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="p-2 bg-light rounded-3 border text-center" style="width:50px;">
+                    <i class="bi bi-airplane-fill fs-3 text-danger"></i>
+                  </div>
+                  <div>
+                    <h5 class="fw-bold text-navy mb-0">Air India</h5>
+                    <span class="badge bg-light text-muted border">AI-909 • Airbus A321neo</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="d-flex align-items-center justify-content-between text-center">
+                  <div>
+                    <div class="fs-4 fw-bold text-navy">19:15</div>
+                    <div class="small text-muted">AMD (Ahmedabad)</div>
+                  </div>
+                  <div class="px-3 flex-grow-1">
+                    <div class="small text-muted">03h 25m</div>
+                    <div class="position-relative my-1">
+                      <hr class="m-0" style="border-top: 2px dashed #CBD5E1;">
+                      <i class="bi bi-airplane-fill text-danger position-absolute top-50 start-50 translate-middle bg-white px-2"></i>
+                    </div>
+                    <div class="badge bg-success bg-opacity-10 text-success small">Non-Stop</div>
+                  </div>
+                  <div>
+                    <div class="fs-4 fw-bold text-navy">21:40</div>
+                    <div class="small text-muted">DXB (Dubai)</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2 text-center text-md-start">
+                <div class="small text-muted"><i class="bi bi-briefcase me-1"></i>25 Kg Check-in</div>
+                <div class="small text-muted"><i class="bi bi-cup-hot me-1"></i>Hot Indian Dinner</div>
+              </div>
+              <div class="col-md-2 text-md-end text-center">
+                <div class="fs-4 fw-bold text-navy">₹21,500</div>
+                <div class="small text-muted mb-2">per person</div>
+                <button class="btn btn-gold btn-sm w-100" onclick="bookTransportDirect('Air India AI-909', 'Ahmedabad to Dubai', 21500, 'Flight')">
+                  Book Seat
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flight Card 3 -->
+        <div class="col-12">
+          <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
+            <div class="row align-items-center g-3">
+              <div class="col-md-3">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="p-2 bg-light rounded-3 border text-center" style="width:50px;">
+                    <i class="bi bi-airplane-fill fs-3 text-primary"></i>
+                  </div>
+                  <div>
+                    <h5 class="fw-bold text-navy mb-0">IndiGo</h5>
+                    <span class="badge bg-light text-muted border">6E-1452 • A320</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="d-flex align-items-center justify-content-between text-center">
+                  <div>
+                    <div class="fs-4 fw-bold text-navy">11:00</div>
+                    <div class="small text-muted">AMD (Ahmedabad)</div>
+                  </div>
+                  <div class="px-3 flex-grow-1">
+                    <div class="small text-muted">03h 30m</div>
+                    <div class="position-relative my-1">
+                      <hr class="m-0" style="border-top: 2px dashed #CBD5E1;">
+                      <i class="bi bi-airplane-fill text-primary position-absolute top-50 start-50 translate-middle bg-white px-2"></i>
+                    </div>
+                    <div class="badge bg-success bg-opacity-10 text-success small">Direct Flight</div>
+                  </div>
+                  <div>
+                    <div class="fs-4 fw-bold text-navy">13:30</div>
+                    <div class="small text-muted">DXB (Dubai)</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2 text-center text-md-start">
+                <div class="small text-muted"><i class="bi bi-briefcase me-1"></i>20 Kg Check-in</div>
+                <div class="small text-muted"><i class="bi bi-shield-check me-1"></i>On-Time Guarantee</div>
+              </div>
+              <div class="col-md-2 text-md-end text-center">
+                <div class="fs-4 fw-bold text-navy">₹18,900</div>
+                <div class="small text-muted mb-2">per person</div>
+                <button class="btn btn-gold btn-sm w-100" onclick="bookTransportDirect('IndiGo 6E-1452', 'Ahmedabad to Dubai', 18900, 'Flight')">
+                  Book Seat
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-akshar">
+    <div class="container text-center">
+      &copy; 2026 <strong>Akshar Tours &amp; Travels</strong>. All Rights Reserved.
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/booking.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      syncNavbarAuth('../');
+      const d = new Date();
+      d.setDate(d.getDate() + 7);
+      document.getElementById('flight-date').value = d.toISOString().split('T')[0];
+    });
+
+    function handleFlightSearch(e) {
+      e.preventDefault();
+      showToast('Searching live airline inventory across GDS networks...', 'info');
+    }
+
+    function bookTransportDirect(title, destination, price, mode) {
+      const user = getCurrentUser();
+      const bookingId = generateBookingId();
+
+      const newBooking = {
+        bookingId: bookingId,
+        itemType: 'flight',
+        itemId: 'FLT-' + Math.floor(100 + Math.random() * 900),
+        title: title,
+        destination: destination,
+        image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=600&auto=format&fit=crop',
+        userEmail: user ? user.email : 'guest@example.com',
+        customerName: user ? user.name : 'Valued Traveler',
+        customerMobile: user ? user.mobile : '+91 98765 43210',
+        customerAddress: user ? user.address : 'Gujarat, India',
+        travelDate: document.getElementById('flight-date')?.value || new Date().toISOString().split('T')[0],
+        travellers: 1,
+        transportSelected: mode,
+        baseFare: price,
+        transportFare: 0,
+        taxes: Math.round(price * 0.05),
+        discount: 0,
+        totalAmount: price + Math.round(price * 0.05),
+        bookingStatus: 'Confirmed',
+        paymentStatus: 'Paid (Demo)',
+        bookedAt: new Date().toISOString()
+      };
+
+      saveBooking(newBooking);
+      showToast(`Flight ticket booking request ${bookingId} confirmed!`, 'success');
+      setTimeout(() => {
+        window.location.href = `../booking/confirmation.html?id=${bookingId}`;
+      }, 1000);
+    }
+  </script>
+</body>
+</html>

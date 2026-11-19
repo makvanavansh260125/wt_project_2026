@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>International Tour Packages (25+ Destinations) | Akshar Tours &amp; Travels</title>
+  <meta name="description" content="Discover 25+ international holiday packages to Dubai, Switzerland, Bali, Thailand, Singapore, Maldives, Paris, London, Japan and Australia with visa assistance.">
+  
+  <link rel="icon" type="image/svg+xml" href="../assets/logos/logo.svg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body class="bg-light">
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div>
+        <span class="contact-item"><i class="bi bi-telephone-fill"></i> +91 79 2656 7890</span>
+        <span class="contact-item"><i class="bi bi-envelope-fill"></i> info@akshartours.com</span>
+      </div>
+      <div>
+        <a href="../admin/login.html" class="text-white-50 small"><i class="bi bi-shield-lock me-1"></i> Admin Portal</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-akshar sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">
+        <img src="../assets/logos/logo.svg" alt="Akshar Tours &amp; Travels" height="48">
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarIntl">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarIntl">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="india.html">India Tours</a></li>
+          <li class="nav-item"><a class="nav-link active" href="international.html">International Tours</a></li>
+          <li class="nav-item"><a class="nav-link" href="../hotels/hotels.html">Hotels</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Transportation</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../transport/flights.html"><i class="bi bi-airplane-fill text-primary"></i> Flights</a></li>
+              <li><a class="dropdown-item" href="../transport/trains.html"><i class="bi bi-train-front-fill text-danger"></i> Trains</a></li>
+              <li><a class="dropdown-item" href="../transport/buses.html"><i class="bi bi-bus-front-fill text-success"></i> Buses</a></li>
+              <li><a class="dropdown-item" href="../transport/cruises.html"><i class="bi bi-tsunami text-info"></i> Cruises</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="../contact.html">Contact Us</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-3">
+          <a href="../customer/dashboard.html#wishlist" class="wishlist-btn-nav">
+            <i class="bi bi-heart fs-5"></i>
+            <span class="wishlist-badge wishlist-count-badge" style="display:none;">0</span>
+          </a>
+          <div id="navbar-auth-section"></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Banner -->
+  <header class="page-banner" style="background: linear-gradient(135deg, rgba(6, 16, 30, 0.85) 0%, rgba(10, 25, 47, 0.78) 100%), url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;">
+    <div class="container text-center">
+      <span class="badge bg-gold text-dark mb-2 px-3 py-2 fw-bold text-uppercase tracking-wider">25+ World Wonders</span>
+      <h1 class="page-banner-title">International Holiday Packages</h1>
+      <p class="text-white-50 mx-auto" style="max-width: 650px;">
+        Curated journeys to Europe, Middle East, Southeast Asia, Oceania and Africa. Inclusive of return international airfares or luxury ocean cruise upgrades, hand-picked 4-star hotels, and visa assistance.
+      </p>
+      <ul class="breadcrumb-akshar justify-content-center mt-3">
+        <li><a href="../index.html">Home</a></li>
+        <li class="active">International Tour Packages</li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Main International Packages Content -->
+  <main class="py-5">
+    <div class="container">
+      
+      <!-- Transportation Rule Callout -->
+      <div class="alert alert-warning border-warning d-flex align-items-center gap-3 mb-4 rounded-3 shadow-sm">
+        <i class="bi bi-shield-check fs-3 text-warning"></i>
+        <div>
+          <strong class="text-navy">International Transportation Policy:</strong>
+          <span class="text-secondary small d-block">
+            In compliance with global logistics, all international packages are offered exclusively with <strong>Flight</strong> (included in base price) and <strong>Luxury Ocean Cruise</strong> options. No train or bus transportation is available for overseas tours.
+          </span>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <!-- Sidebar Filter Column -->
+        <aside class="col-lg-3">
+          <div class="filter-card sticky-top" style="top: 90px; z-index: 10;">
+            <div class="filter-title">
+              <span><i class="bi bi-funnel-fill text-gold me-2"></i>Filter Tours</span>
+              <button class="btn btn-sm text-royal p-0" onclick="resetIntlFilters()">Reset</button>
+            </div>
+
+            <!-- Search Keyword -->
+            <div class="filter-group">
+              <label class="filter-group-title">Search Country / City</label>
+              <div class="input-group">
+                <span class="input-group-text bg-light"><i class="bi bi-search"></i></span>
+                <input type="text" id="filter-search-intl" class="form-control form-control-sm" placeholder="e.g. Dubai, Switzerland, Bali..." oninput="applyIntlFilters()">
+              </div>
+            </div>
+
+            <!-- Country Dropdown -->
+            <div class="filter-group">
+              <label class="filter-group-title">Destination Region</label>
+              <select id="filter-country-intl" class="form-select form-select-sm" onchange="applyIntlFilters()">
+                <option value="all" selected>All Countries (25)</option>
+                <option value="United Arab Emirates">Dubai &amp; UAE</option>
+                <option value="Thailand">Thailand</option>
+                <option value="Singapore">Singapore</option>
+                <option value="Malaysia">Malaysia</option>
+                <option value="Indonesia">Bali (Indonesia)</option>
+                <option value="Maldives">Maldives</option>
+                <option value="Switzerland">Switzerland</option>
+                <option value="France">France</option>
+                <option value="Italy">Italy</option>
+                <option value="United Kingdom">London (UK)</option>
+                <option value="Australia">Australia</option>
+                <option value="Japan">Japan</option>
+                <option value="Vietnam">Vietnam</option>
+                <option value="Mauritius">Mauritius</option>
+                <option value="Nepal">Nepal</option>
+                <option value="Greece">Greece</option>
+                <option value="Turkey">Turkey</option>
+                <option value="Egypt">Egypt</option>
+                <option value="South Korea">South Korea</option>
+                <option value="New Zealand">New Zealand</option>
+                <option value="South Africa">South Africa</option>
+                <option value="Spain">Spain</option>
+                <option value="Kenya">Kenya</option>
+              </select>
+            </div>
+
+            <!-- Duration Filter -->
+            <div class="filter-group">
+              <label class="filter-group-title">Duration</label>
+              <select id="filter-duration-intl" class="form-select form-select-sm" onchange="applyIntlFilters()">
+                <option value="all" selected>Any Duration</option>
+                <option value="short">4 - 5 Days</option>
+                <option value="medium">6 - 7 Days</option>
+                <option value="long">8+ Days</option>
+              </select>
+            </div>
+
+            <!-- Max Budget Slider -->
+            <div class="filter-group">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <label class="filter-group-title mb-0">Max Budget</label>
+                <span class="fw-bold text-navy small" id="filter-price-val-intl">₹2,00,000</span>
+              </div>
+              <input type="range" class="form-range" id="filter-price-intl" min="25000" max="200000" step="5000" value="200000" oninput="updateIntlPriceSlider(this.value)">
+              <div class="d-flex justify-content-between text-muted" style="font-size: 0.72rem;">
+                <span>₹25,000</span>
+                <span>₹2,00,000</span>
+              </div>
+            </div>
+
+            <!-- Allowed Modes -->
+            <div class="filter-group">
+              <label class="filter-group-title">International Transport</label>
+              <div class="d-flex flex-column gap-2 small">
+                <div class="p-2 bg-light rounded-2 border d-flex align-items-center gap-2">
+                  <i class="bi bi-airplane-fill text-primary"></i>
+                  <div>
+                    <strong>Return Flight</strong>
+                    <div class="text-muted" style="font-size: 0.75rem;">Included in base package</div>
+                  </div>
+                </div>
+                <div class="p-2 bg-light rounded-2 border d-flex align-items-center gap-2">
+                  <i class="bi bi-tsunami text-info"></i>
+                  <div>
+                    <strong>Luxury Cruise</strong>
+                    <div class="text-muted" style="font-size: 0.75rem;">Available ocean liner upgrade</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Packages Grid Column -->
+        <div class="col-lg-9">
+          <!-- Filter & Sort Toolbar -->
+          <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 p-3 bg-white rounded-3 border mb-4 shadow-sm">
+            <div>
+              <span class="fw-bold text-navy" id="results-count">25 International Packages Found</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <label class="small text-muted text-nowrap mb-0"><i class="bi bi-arrow-down-up me-1"></i>Sort By:</label>
+              <select class="form-select form-select-sm" id="sort-by-intl" style="width: 190px;" onchange="applyIntlFilters()">
+                <option value="popularity" selected>Most Popular</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="duration">Longest Duration</option>
+                <option value="rating">Highest Rated</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Dynamic Grid Container -->
+          <div class="row g-4" id="packages-grid">
+            <!-- Injected by js/packages.js -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-akshar">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <img src="../assets/logos/logo-white.svg" alt="Akshar Tours &amp; Travels" height="48">
+          <p class="footer-brand-desc">
+            Your premier journey partner for domestic Indian escapes, international holiday packages, flight bookings, and luxury hotels.
+          </p>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h4 class="footer-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="india.html">India Tours</a></li>
+            <li><a href="international.html">International Tours</a></li>
+            <li><a href="../hotels/hotels.html">Hotels</a></li>
+            <li><a href="../about.html">About Us</a></li>
+            <li><a href="../contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h4 class="footer-title">Transportation</h4>
+          <ul class="footer-links">
+            <li><a href="../transport/flights.html">Flight Booking</a></li>
+            <li><a href="../transport/trains.html">Train Booking</a></li>
+            <li><a href="../transport/buses.html">Bus Booking</a></li>
+            <li><a href="../transport/cruises.html">Cruise Booking</a></li>
+            <li><a href="../booking/my-bookings.html">My Bookings</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h4 class="footer-title">Contact</h4>
+          <div class="footer-contact-item">
+            <i class="bi bi-geo-alt-fill"></i>
+            <div>C.G. Road, Navrangpura, Ahmedabad - 380009</div>
+          </div>
+          <div class="footer-contact-item">
+            <i class="bi bi-telephone-fill"></i>
+            <div>+91 79 2656 7890</div>
+          </div>
+          <div class="footer-contact-item">
+            <i class="bi bi-envelope-fill"></i>
+            <div>info@akshartours.com</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom text-center">
+        &copy; 2026 <strong>Akshar Tours &amp; Travels</strong>. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/packages.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      syncNavbarAuth('../');
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const searchKw = urlParams.get('search');
+      if (searchKw) {
+        document.getElementById('filter-search-intl').value = searchKw;
+      }
+
+      applyIntlFilters();
+    });
+
+    function updateIntlPriceSlider(val) {
+      document.getElementById('filter-price-val-intl').textContent = formatINR(val);
+      applyIntlFilters();
+    }
+
+    function applyIntlFilters() {
+      const searchKeyword = document.getElementById('filter-search-intl')?.value.trim() || '';
+      const country = document.getElementById('filter-country-intl')?.value || 'all';
+      const duration = document.getElementById('filter-duration-intl')?.value || 'all';
+      const maxPrice = document.getElementById('filter-price-intl')?.value || 200000;
+      const sortBy = document.getElementById('sort-by-intl')?.value || 'popularity';
+
+      renderPackagesList('packages-grid', 'international', {
+        searchKeyword: country !== 'all' ? country : searchKeyword,
+        duration,
+        maxPrice,
+        sortBy,
+        pathPrefix: '../'
+      });
+    }
+
+    function resetIntlFilters() {
+      document.getElementById('filter-search-intl').value = '';
+      document.getElementById('filter-country-intl').value = 'all';
+      document.getElementById('filter-duration-intl').value = 'all';
+      const slider = document.getElementById('filter-price-intl');
+      slider.value = 200000;
+      document.getElementById('filter-price-val-intl').textContent = formatINR(200000);
+      document.getElementById('sort-by-intl').value = 'popularity';
+      applyIntlFilters();
+    }
+  </script>
+</body>
+</html>

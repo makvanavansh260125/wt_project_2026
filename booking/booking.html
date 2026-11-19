@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complete Your Reservation | Akshar Tours &amp; Travels</title>
+  
+  <link rel="icon" type="image/svg+xml" href="../assets/logos/logo.svg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body class="bg-light">
+
+  <!-- Header -->
+  <header class="py-3 bg-white border-bottom shadow-sm">
+    <div class="container d-flex justify-content-between align-items-center">
+      <a href="../index.html">
+        <img src="../assets/logos/logo.svg" alt="Akshar Tours &amp; Travels" height="44">
+      </a>
+      <div class="d-flex align-items-center gap-3">
+        <div class="text-muted small d-none d-md-block">
+          <i class="bi bi-shield-lock-fill text-success me-1"></i> 256-Bit SSL Encrypted Request
+        </div>
+        <a href="../packages/india.html" class="btn btn-outline-navy btn-sm">
+          <i class="bi bi-x-lg me-1"></i> Exit Booking
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="py-5">
+    <div class="container">
+      
+      <!-- Booking Wizard Steps Progress Header -->
+      <div class="booking-steps-bar mb-5">
+        <div class="step-item active" id="step-nav-1">
+          <div class="step-circle">1</div>
+          <div class="step-label">Select Options</div>
+        </div>
+        <div class="step-item" id="step-nav-2">
+          <div class="step-circle">2</div>
+          <div class="step-label">Traveler Details</div>
+        </div>
+        <div class="step-item" id="step-nav-3">
+          <div class="step-circle">3</div>
+          <div class="step-label">Review &amp; Confirm</div>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <!-- Main Interactive Steps Column -->
+        <div class="col-lg-8">
+          
+          <!-- Selected Package Overview Preview -->
+          <div class="card border-0 shadow-sm rounded-4 p-4 mb-4 bg-white" id="booking-item-preview">
+            <!-- Injected by js/booking.js -->
+          </div>
+
+          <!-- STEP 1: OPTIONS & TRANSPORTATION -->
+          <div class="card border-0 shadow-sm rounded-4 p-4 p-md-5 mb-4 bg-white wizard-panel" id="wizard-panel-1">
+            <h4 class="fw-bold text-navy mb-4">
+              <span class="badge bg-gold text-dark me-2">Step 1</span> Select Date, Travelers &amp; Transportation
+            </h4>
+
+            <div class="row g-3 mb-4">
+              <div class="col-md-6">
+                <label class="form-label fw-bold small text-navy"><i class="bi bi-calendar-event text-primary me-1"></i> Preferred Travel Date <span class="text-danger">*</span></label>
+                <input type="date" id="book-date" class="form-control" onchange="currentBookingState.travelDate = this.value;" required>
+                <div class="form-text small">Select any date at least 3 days from today.</div>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label fw-bold small text-navy"><i class="bi bi-people-fill text-gold me-1"></i> Number of Travelers <span class="text-danger">*</span></label>
+                <select id="book-travellers" class="form-select" onchange="currentBookingState.travellers = Number(this.value); recalculateBookingFinancials();">
+                  <option value="1">1 Person (Single Occupancy)</option>
+                  <option value="2" selected>2 Persons (Twin Sharing)</option>
+                  <option value="3">3 Persons (Triple Sharing)</option>
+                  <option value="4">4 Persons (Family Suite)</option>
+                  <option value="5">5 Persons (Group)</option>
+                  <option value="6">6 Persons (Group)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Dynamic Transportation Selector Options -->
+            <div class="mb-4">
+              <label class="form-label fw-bold small text-navy mb-2">
+                <i class="bi bi-airplane-engines-fill text-royal me-1"></i> Choose Preferred Transportation:
+              </label>
+              <div id="step-transport-options">
+                <!-- Injected dynamically with Indian 3-modes or International 2-modes -->
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-end mt-4">
+              <button type="button" class="btn btn-gold px-4 py-2" onclick="goToWizardStep(2)">
+                Continue to Traveler Details <i class="bi bi-arrow-right ms-1"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 2: TRAVELER DETAILS -->
+          <div class="card border-0 shadow-sm rounded-4 p-4 p-md-5 mb-4 bg-white wizard-panel" id="wizard-panel-2" style="display:none;">
+            <h4 class="fw-bold text-navy mb-4">
+              <span class="badge bg-gold text-dark me-2">Step 2</span> Lead Traveler Contact Information
+            </h4>
+
+            <div class="row g-3 mb-4">
+              <div class="col-md-6">
+                <label class="form-label fw-bold small text-navy">Full Name <span class="text-danger">*</span></label>
+                <input type="text" id="book-name" class="form-control" placeholder="e.g. Rahul Sharma" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-bold small text-navy">Email Address (for vouchers) <span class="text-danger">*</span></label>
+                <input type="email" id="book-email" class="form-control" placeholder="name@example.com" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-bold small text-navy">Mobile Number <span class="text-danger">*</span></label>
+                <div class="input-group">
+                  <span class="input-group-text bg-light">+91</span>
+                  <input type="tel" id="book-mobile" class="form-control" placeholder="9876543210" maxlength="10" required>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-bold small text-navy">Special Dietary / Room Preferences</label>
+                <input type="text" id="book-requests" class="form-control" placeholder="e.g. Jain Food, Non-Smoking, Near Elevator">
+              </div>
+              <div class="col-12">
+                <label class="form-label fw-bold small text-navy">Billing &amp; Postal Address <span class="text-danger">*</span></label>
+                <textarea id="book-address" class="form-control" rows="2" placeholder="Street, Flat/House No, City, State, PIN" required></textarea>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-between mt-4">
+              <button type="button" class="btn btn-outline-secondary px-4 py-2" onclick="goToWizardStep(1)">
+                <i class="bi bi-arrow-left me-1"></i> Back
+              </button>
+              <button type="button" class="btn btn-gold px-4 py-2" onclick="goToWizardStep(3)">
+                Review Booking Summary <i class="bi bi-arrow-right ms-1"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 3: REVIEW & CONFIRM -->
+          <div class="card border-0 shadow-sm rounded-4 p-4 p-md-5 mb-4 bg-white wizard-panel" id="wizard-panel-3" style="display:none;">
+            <h4 class="fw-bold text-navy mb-4">
+              <span class="badge bg-gold text-dark me-2">Step 3</span> Review &amp; Submit Booking Request
+            </h4>
+
+            <div class="table-responsive mb-4">
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <td class="table-light fw-bold" style="width: 35%;">Package / Hotel</td>
+                    <td id="review-pkg-title" class="fw-bold text-navy">Loading...</td>
+                  </tr>
+                  <tr>
+                    <td class="table-light fw-bold">Destination</td>
+                    <td id="review-destination">Loading...</td>
+                  </tr>
+                  <tr>
+                    <td class="table-light fw-bold">Departure Date</td>
+                    <td id="review-travel-date" class="text-primary fw-bold">Loading...</td>
+                  </tr>
+                  <tr>
+                    <td class="table-light fw-bold">Travelers</td>
+                    <td id="review-travellers">Loading...</td>
+                  </tr>
+                  <tr>
+                    <td class="table-light fw-bold">Transportation Mode</td>
+                    <td id="review-transport" class="fw-bold text-success">Loading...</td>
+                  </tr>
+                  <tr>
+                    <td class="table-light fw-bold">Lead Contact</td>
+                    <td>
+                      <span id="review-cust-name" class="fw-bold"></span> 
+                      (<span id="review-cust-email"></span> | <span id="review-cust-mobile"></span>)
+                    </td>
+                  </tr>
+                  <tr class="table-warning">
+                    <td class="fw-bold fs-5 text-navy">Final Estimated Amount</td>
+                    <td id="review-final-amount" class="fw-bold fs-5 text-navy">₹0</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="form-check mb-4">
+              <input class="form-check-input" type="checkbox" id="book-confirm-terms" checked>
+              <label class="form-check-label small text-muted" for="book-confirm-terms">
+                I understand this is a travel agency booking demonstration request. My unique booking ID and official voucher will be generated in LocalStorage.
+              </label>
+            </div>
+
+            <div class="d-flex justify-content-between mt-4">
+              <button type="button" class="btn btn-outline-secondary px-4 py-2" onclick="goToWizardStep(2)">
+                <i class="bi bi-arrow-left me-1"></i> Edit Details
+              </button>
+              <button type="button" class="btn btn-gold btn-lg px-5 py-3 fw-bold" onclick="submitBookingRequest()">
+                <i class="bi bi-check-circle-fill me-1"></i> Confirm &amp; Generate Booking ID
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Sticky Price Breakdown Sidebar -->
+        <div class="col-lg-4">
+          <div class="card border-0 shadow-lg rounded-4 p-4 sticky-top bg-white" style="top: 100px; z-index: 10;">
+            <h5 class="fw-bold text-navy mb-3 pb-2 border-bottom">
+              <i class="bi bi-receipt text-gold me-2"></i> Fare Summary
+            </h5>
+
+            <div class="fare-rows mb-3">
+              <div class="d-flex justify-content-between py-2 small border-bottom">
+                <span class="text-muted">Base Rate:</span>
+                <span id="summary-base-rate" class="fw-bold text-navy">₹0</span>
+              </div>
+              <div class="d-flex justify-content-between py-2 small border-bottom">
+                <span class="text-muted">Travelers Count:</span>
+                <span id="summary-travellers-count" class="fw-bold text-navy">2</span>
+              </div>
+              <div class="d-flex justify-content-between py-2 small border-bottom">
+                <span class="text-muted">Package Subtotal:</span>
+                <span id="summary-subtotal-base" class="fw-bold text-navy">₹0</span>
+              </div>
+              <div class="d-flex justify-content-between py-2 small border-bottom">
+                <span class="text-muted">Transport (<span id="summary-transport-name">Flight</span>):</span>
+                <span id="summary-transport-fare" class="fw-bold text-primary">₹0</span>
+              </div>
+              <div class="d-flex justify-content-between py-2 small border-bottom">
+                <span class="text-muted">GST &amp; Taxes (5%):</span>
+                <span id="summary-taxes" class="fw-bold text-muted">₹0</span>
+              </div>
+              <div class="d-flex justify-content-between py-2 small border-bottom text-success">
+                <span>Discount / Promo:</span>
+                <span id="summary-discount" class="fw-bold">₹0</span>
+              </div>
+            </div>
+
+            <!-- Promo Code Form -->
+            <div class="input-group mb-3">
+              <input type="text" id="promo-code-input" class="form-control form-control-sm text-uppercase" placeholder="Try 'AKSHAR10'">
+              <button class="btn btn-outline-navy btn-sm" type="button" onclick="applyPromoCode()">Apply</button>
+            </div>
+
+            <!-- Grand Total -->
+            <div class="p-3 bg-light rounded-3 border text-center mb-3">
+              <div class="small text-muted text-uppercase fw-bold">Total Estimated Amount</div>
+              <div class="display-6 fw-bold text-navy my-1" id="summary-grand-total">₹0</div>
+              <div class="small text-muted">Taxes &amp; fees included</div>
+            </div>
+
+            <div class="text-center small text-muted">
+              <i class="bi bi-shield-check text-success me-1"></i> No credit card charges upfront. Confirmation voucher issued immediately.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer-akshar">
+    <div class="container text-center">
+      &copy; 2026 <strong>Akshar Tours &amp; Travels</strong>. All Rights Reserved.
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/packages.js"></script>
+  <script src="../js/hotels.js"></script>
+  <script src="../js/booking.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initBookingWizard();
+    });
+  </script>
+</body>
+</html>

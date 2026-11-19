@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tour Package Details | Akshar Tours &amp; Travels</title>
+  
+  <link rel="icon" type="image/svg+xml" href="../assets/logos/logo.svg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body class="bg-light">
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div>
+        <span class="contact-item"><i class="bi bi-telephone-fill"></i> +91 79 2656 7890</span>
+        <span class="contact-item"><i class="bi bi-envelope-fill"></i> info@akshartours.com</span>
+      </div>
+      <div>
+        <a href="../admin/login.html" class="text-white-50 small"><i class="bi bi-shield-lock me-1"></i> Admin Portal</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-akshar sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">
+        <img src="../assets/logos/logo.svg" alt="Akshar Tours &amp; Travels" height="48">
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDetails">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarDetails">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="india.html">India Tours</a></li>
+          <li class="nav-item"><a class="nav-link" href="international.html">International Tours</a></li>
+          <li class="nav-item"><a class="nav-link" href="../hotels/hotels.html">Hotels</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Transportation</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../transport/flights.html"><i class="bi bi-airplane-fill text-primary"></i> Flights</a></li>
+              <li><a class="dropdown-item" href="../transport/trains.html"><i class="bi bi-train-front-fill text-danger"></i> Trains</a></li>
+              <li><a class="dropdown-item" href="../transport/buses.html"><i class="bi bi-bus-front-fill text-success"></i> Buses</a></li>
+              <li><a class="dropdown-item" href="../transport/cruises.html"><i class="bi bi-tsunami text-info"></i> Cruises</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="../contact.html">Contact Us</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-3">
+          <a href="../customer/dashboard.html#wishlist" class="wishlist-btn-nav">
+            <i class="bi bi-heart fs-5"></i>
+            <span class="wishlist-badge wishlist-count-badge" style="display:none;">0</span>
+          </a>
+          <div id="navbar-auth-section"></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb Bar -->
+  <div class="bg-white py-3 border-bottom">
+    <div class="container">
+      <ul class="breadcrumb-akshar m-0">
+        <li><a href="../index.html" class="text-navy">Home</a></li>
+        <li><a href="india.html" class="text-navy" id="pkg-breadcrumb-parent">Packages</a></li>
+        <li class="active text-muted" id="pkg-breadcrumb-title">Package Details</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Dynamic Package Container -->
+  <main class="py-5">
+    <div class="container" id="package-details-container">
+      <!-- Injected by js/packages.js initPackageDetailsPage() -->
+      <div class="text-center py-5">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading package specifications...</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-akshar">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <img src="../assets/logos/logo-white.svg" alt="Akshar Tours &amp; Travels" height="48">
+          <p class="footer-brand-desc">
+            Your premier journey partner for domestic Indian escapes, international holiday packages, flight bookings, and luxury hotels.
+          </p>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h4 class="footer-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="india.html">India Tours</a></li>
+            <li><a href="international.html">International Tours</a></li>
+            <li><a href="../hotels/hotels.html">Hotels</a></li>
+            <li><a href="../about.html">About Us</a></li>
+            <li><a href="../contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h4 class="footer-title">Transportation</h4>
+          <ul class="footer-links">
+            <li><a href="../transport/flights.html">Flight Booking</a></li>
+            <li><a href="../transport/trains.html">Train Booking</a></li>
+            <li><a href="../transport/buses.html">Bus Booking</a></li>
+            <li><a href="../transport/cruises.html">Cruise Booking</a></li>
+            <li><a href="../booking/my-bookings.html">My Bookings</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h4 class="footer-title">Contact</h4>
+          <div class="footer-contact-item">
+            <i class="bi bi-geo-alt-fill"></i>
+            <div>C.G. Road, Navrangpura, Ahmedabad - 380009</div>
+          </div>
+          <div class="footer-contact-item">
+            <i class="bi bi-telephone-fill"></i>
+            <div>+91 79 2656 7890</div>
+          </div>
+          <div class="footer-contact-item">
+            <i class="bi bi-envelope-fill"></i>
+            <div>info@akshartours.com</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom text-center">
+        &copy; 2026 <strong>Akshar Tours &amp; Travels</strong>. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/packages.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      syncNavbarAuth('../');
+      initPackageDetailsPage('../');
+    });
+  </script>
+</body>
+</html>

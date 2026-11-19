@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indian Tour Packages (30+ Circuits) | Akshar Tours &amp; Travels</title>
+  <meta name="description" content="Explore over 30 authentic Indian holiday packages covering Rajasthan, Kerala, Kashmir, Golden Triangle, Himachal, Ladakh, Andaman, Goa and spiritual shrines.">
+  
+  <link rel="icon" type="image/svg+xml" href="../assets/logos/logo.svg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body class="bg-light">
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div>
+        <span class="contact-item"><i class="bi bi-telephone-fill"></i> +91 79 2656 7890</span>
+        <span class="contact-item"><i class="bi bi-envelope-fill"></i> info@akshartours.com</span>
+      </div>
+      <div>
+        <a href="../admin/login.html" class="text-white-50 small"><i class="bi bi-shield-lock me-1"></i> Admin Portal</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-akshar sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">
+        <img src="../assets/logos/logo.svg" alt="Akshar Tours &amp; Travels" height="48">
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarIndia">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarIndia">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="india.html">India Tours</a></li>
+          <li class="nav-item"><a class="nav-link" href="international.html">International Tours</a></li>
+          <li class="nav-item"><a class="nav-link" href="../hotels/hotels.html">Hotels</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Transportation</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../transport/flights.html"><i class="bi bi-airplane-fill text-primary"></i> Flights</a></li>
+              <li><a class="dropdown-item" href="../transport/trains.html"><i class="bi bi-train-front-fill text-danger"></i> Trains</a></li>
+              <li><a class="dropdown-item" href="../transport/buses.html"><i class="bi bi-bus-front-fill text-success"></i> Buses</a></li>
+              <li><a class="dropdown-item" href="../transport/cruises.html"><i class="bi bi-tsunami text-info"></i> Cruises</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="../contact.html">Contact Us</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-3">
+          <a href="../customer/dashboard.html#wishlist" class="wishlist-btn-nav">
+            <i class="bi bi-heart fs-5"></i>
+            <span class="wishlist-badge wishlist-count-badge" style="display:none;">0</span>
+          </a>
+          <div id="navbar-auth-section"></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Banner -->
+  <header class="page-banner" style="background: linear-gradient(135deg, rgba(6, 16, 30, 0.85) 0%, rgba(10, 25, 47, 0.78) 100%), url('https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;">
+    <div class="container text-center">
+      <span class="badge bg-gold text-dark mb-2 px-3 py-2 fw-bold text-uppercase tracking-wider">30+ Tailor-Made Circuits</span>
+      <h1 class="page-banner-title">Incredible India Tour Packages</h1>
+      <p class="text-white-50 mx-auto" style="max-width: 650px;">
+        Explore majestic hill forts, tranquil backwaters, snow-crowned peaks, and sacred pilgrimage routes. All Indian packages include choice of Flight, Train, or Luxury Bus transportation!
+      </p>
+      <ul class="breadcrumb-akshar justify-content-center mt-3">
+        <li><a href="../index.html">Home</a></li>
+        <li class="active">Indian Tour Packages</li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Main Packages Content with Sidebar Filters -->
+  <main class="py-5">
+    <div class="container">
+      
+      <!-- Top Bar Notification on Transportation Rule -->
+      <div class="alert alert-primary border-primary d-flex align-items-center gap-3 mb-4 rounded-3 shadow-sm">
+        <i class="bi bi-info-circle-fill fs-3 text-primary"></i>
+        <div>
+          <strong class="text-navy">Flexible Indian Transportation:</strong>
+          <span class="text-secondary small d-block">
+            Every Indian package features 3 dynamic transport options: <strong>Flight</strong>, <strong>Train</strong>, and <strong>Luxury AC Sleeper Bus</strong>. Click on any package to customize transport and see instant price calculations.
+          </span>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <!-- Sidebar Filter Column -->
+        <aside class="col-lg-3">
+          <div class="filter-card sticky-top" style="top: 90px; z-index: 10;">
+            <div class="filter-title">
+              <span><i class="bi bi-funnel-fill text-gold me-2"></i>Filter Packages</span>
+              <button class="btn btn-sm text-royal p-0" onclick="resetFilters()">Reset</button>
+            </div>
+
+            <!-- Search Keyword -->
+            <div class="filter-group">
+              <label class="filter-group-title">Search Destination</label>
+              <div class="input-group">
+                <span class="input-group-text bg-light"><i class="bi bi-search"></i></span>
+                <input type="text" id="filter-search" class="form-control form-control-sm" placeholder="e.g. Kerala, Jaipur, Leh..." oninput="applyFilters()">
+              </div>
+            </div>
+
+            <!-- Category Filter -->
+            <div class="filter-group">
+              <label class="filter-group-title">Theme / Category</label>
+              <select id="filter-category" class="form-select form-select-sm" onchange="applyFilters()">
+                <option value="all" selected>All Categories (30)</option>
+                <option value="Heritage">Heritage &amp; Culture</option>
+                <option value="Nature & Hill">Nature &amp; Hill Stations</option>
+                <option value="Romantic">Romantic &amp; Honeymoon</option>
+                <option value="Spiritual">Spiritual &amp; Pilgrimage</option>
+                <option value="Beach">Beach &amp; Coastal</option>
+                <option value="Adventure">Adventure &amp; Wildlife</option>
+              </select>
+            </div>
+
+            <!-- Duration Filter -->
+            <div class="filter-group">
+              <label class="filter-group-title">Duration</label>
+              <select id="filter-duration" class="form-select form-select-sm" onchange="applyFilters()">
+                <option value="all" selected>Any Duration</option>
+                <option value="short">Short Getaway (1 - 4 Days)</option>
+                <option value="medium">Standard Holiday (5 - 7 Days)</option>
+                <option value="long">Grand Expedition (8+ Days)</option>
+              </select>
+            </div>
+
+            <!-- Max Budget Slider -->
+            <div class="filter-group">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <label class="filter-group-title mb-0">Max Budget</label>
+                <span class="fw-bold text-navy small" id="filter-price-val">₹50,000</span>
+              </div>
+              <input type="range" class="form-range" id="filter-price" min="8000" max="50000" step="1000" value="50000" oninput="updatePriceSlider(this.value)">
+              <div class="d-flex justify-content-between text-muted" style="font-size: 0.72rem;">
+                <span>₹8,000</span>
+                <span>₹50,000</span>
+              </div>
+            </div>
+
+            <!-- Transportation Mode Highlight -->
+            <div class="filter-group">
+              <label class="filter-group-title">Included Modes</label>
+              <div class="d-flex flex-column gap-2 small">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="check-flight" checked disabled>
+                  <label class="form-check-label text-navy" for="check-flight"><i class="bi bi-airplane-fill text-primary me-1"></i> Flights Available</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="check-train" checked disabled>
+                  <label class="form-check-label text-navy" for="check-train"><i class="bi bi-train-front-fill text-danger me-1"></i> Train Berths Available</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="check-bus" checked disabled>
+                  <label class="form-check-label text-navy" for="check-bus"><i class="bi bi-bus-front-fill text-success me-1"></i> Luxury AC Sleeper Bus</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Packages Grid Column -->
+        <div class="col-lg-9">
+          <!-- Filter & Sort Toolbar -->
+          <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 p-3 bg-white rounded-3 border mb-4 shadow-sm">
+            <div>
+              <span class="fw-bold text-navy" id="results-count">30 Packages Found</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <label class="small text-muted text-nowrap mb-0"><i class="bi bi-arrow-down-up me-1"></i>Sort By:</label>
+              <select class="form-select form-select-sm" id="sort-by" style="width: 190px;" onchange="applyFilters()">
+                <option value="popularity" selected>Most Popular</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="duration">Longest Duration</option>
+                <option value="rating">Highest Rated</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Dynamic Grid Container -->
+          <div class="row g-4" id="packages-grid">
+            <!-- Injected by js/packages.js -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-akshar">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <img src="../assets/logos/logo-white.svg" alt="Akshar Tours &amp; Travels" height="48">
+          <p class="footer-brand-desc">
+            Your premier journey partner for domestic Indian escapes, international holiday packages, flight bookings, and luxury hotels.
+          </p>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h4 class="footer-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="india.html">India Tours</a></li>
+            <li><a href="international.html">International Tours</a></li>
+            <li><a href="../hotels/hotels.html">Hotels</a></li>
+            <li><a href="../about.html">About Us</a></li>
+            <li><a href="../contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h4 class="footer-title">Transportation</h4>
+          <ul class="footer-links">
+            <li><a href="../transport/flights.html">Flight Booking</a></li>
+            <li><a href="../transport/trains.html">Train Booking</a></li>
+            <li><a href="../transport/buses.html">Bus Booking</a></li>
+            <li><a href="../transport/cruises.html">Cruise Booking</a></li>
+            <li><a href="../booking/my-bookings.html">My Bookings</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h4 class="footer-title">Contact</h4>
+          <div class="footer-contact-item">
+            <i class="bi bi-geo-alt-fill"></i>
+            <div>C.G. Road, Navrangpura, Ahmedabad - 380009</div>
+          </div>
+          <div class="footer-contact-item">
+            <i class="bi bi-telephone-fill"></i>
+            <div>+91 79 2656 7890</div>
+          </div>
+          <div class="footer-contact-item">
+            <i class="bi bi-envelope-fill"></i>
+            <div>info@akshartours.com</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom text-center">
+        &copy; 2026 <strong>Akshar Tours &amp; Travels</strong>. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/packages.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      syncNavbarAuth('../');
+
+      // Check URL query parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const searchKw = urlParams.get('search');
+      const catParam = urlParams.get('cat');
+
+      if (searchKw) {
+        document.getElementById('filter-search').value = searchKw;
+      }
+      if (catParam) {
+        document.getElementById('filter-category').value = catParam;
+      }
+
+      applyFilters();
+    });
+
+    function updatePriceSlider(val) {
+      document.getElementById('filter-price-val').textContent = formatINR(val);
+      applyFilters();
+    }
+
+    function applyFilters() {
+      const searchKeyword = document.getElementById('filter-search')?.value.trim() || '';
+      const category = document.getElementById('filter-category')?.value || 'all';
+      const duration = document.getElementById('filter-duration')?.value || 'all';
+      const maxPrice = document.getElementById('filter-price')?.value || 50000;
+      const sortBy = document.getElementById('sort-by')?.value || 'popularity';
+
+      renderPackagesList('packages-grid', 'india', {
+        searchKeyword,
+        category,
+        duration,
+        maxPrice,
+        sortBy,
+        pathPrefix: '../'
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+/* ==========================================================================
+   AKSHAR TOURS & TRAVELS - CUSTOMER DASHBOARD STYLESHEET
+   ========================================================================== */
+
+.customer-sidebar-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--gray-200);
+  box-shadow: var(--shadow-sm);
+  padding: 24px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.customer-avatar-large {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--royal-blue) 100%);
+  color: var(--gold);
+  font-size: 2.2rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  border: 4px solid var(--gold-subtle);
+  box-shadow: var(--shadow-md);
+}
+
+.customer-nav-menu {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+  border-top: 1px solid var(--gray-200);
+  padding-top: 16px;
+  text-align: left;
+}
+
+.customer-nav-item {
+  margin-bottom: 6px;
+}
+
+.customer-nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  color: var(--gray-700);
+  font-weight: 600;
+  font-size: 0.92rem;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.customer-nav-link i {
+  font-size: 1.15rem;
+  color: var(--royal-blue);
+  margin-right: 10px;
+}
+
+.customer-nav-link:hover {
+  background: var(--royal-subtle);
+  color: var(--royal-blue);
+}
+
+.customer-nav-link.active {
+  background: var(--navy);
+  color: var(--gold);
+}
+
+.customer-nav-link.active i {
+  color: var(--gold);
+}
+
+/* Dashboard summary widgets */
+.customer-summary-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--gray-200);
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.customer-summary-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.customer-summary-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+}
+
+/* Booking Cards */
+.booking-history-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--gray-200);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 20px;
+  transition: var(--transition);
+}
+
+.booking-history-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: rgba(26, 86, 219, 0.3);
+}
+
+.booking-card-header {
+  background: var(--gray-50);
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.booking-card-body {
+  padding: 20px;
+}
+
+.booking-img-thumb {
+  width: 100px;
+  height: 80px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+}
+
+/* Printable Receipt Styles */
+.receipt-wrapper {
+  background: var(--white);
+  border: 2px dashed var(--gold);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+}
+
+.receipt-header {
+  border-bottom: 2px solid var(--navy);
+  padding-bottom: 20px;
+  margin-bottom: 24px;
+}
+
+.receipt-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-30deg);
+  font-size: 6rem;
+  font-weight: 900;
+  color: rgba(10, 25, 47, 0.04);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .receipt-wrapper, .receipt-wrapper * {
+    visibility: visible;
+  }
+  .receipt-wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+  .no-print {
+    display: none !important;
+  }
+}

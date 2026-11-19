@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luxury Hotels &amp; Resorts (20+ Properties) | Akshar Tours &amp; Travels</title>
+  <meta name="description" content="Book 5-star and 4-star luxury hotels and palace resorts across Mumbai, Agra, Jaipur, Kerala, Shimla, Dubai, Singapore, Bali, Maldives and Switzerland.">
+  
+  <link rel="icon" type="image/svg+xml" href="../assets/logos/logo.svg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body class="bg-light">
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div>
+        <span class="contact-item"><i class="bi bi-telephone-fill"></i> +91 79 2656 7890</span>
+        <span class="contact-item"><i class="bi bi-envelope-fill"></i> info@akshartours.com</span>
+      </div>
+      <div>
+        <a href="../admin/login.html" class="text-white-50 small"><i class="bi bi-shield-lock me-1"></i> Admin Portal</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-akshar sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">
+        <img src="../assets/logos/logo.svg" alt="Akshar Tours &amp; Travels" height="48">
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHotels">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarHotels">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="../packages/india.html">India Tours</a></li>
+          <li class="nav-item"><a class="nav-link" href="../packages/international.html">International Tours</a></li>
+          <li class="nav-item"><a class="nav-link active" href="hotels.html">Hotels</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Transportation</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../transport/flights.html"><i class="bi bi-airplane-fill text-primary"></i> Flights</a></li>
+              <li><a class="dropdown-item" href="../transport/trains.html"><i class="bi bi-train-front-fill text-danger"></i> Trains</a></li>
+              <li><a class="dropdown-item" href="../transport/buses.html"><i class="bi bi-bus-front-fill text-success"></i> Buses</a></li>
+              <li><a class="dropdown-item" href="../transport/cruises.html"><i class="bi bi-tsunami text-info"></i> Cruises</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="../contact.html">Contact Us</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-3">
+          <a href="../customer/dashboard.html#wishlist" class="wishlist-btn-nav">
+            <i class="bi bi-heart fs-5"></i>
+            <span class="wishlist-badge wishlist-count-badge" style="display:none;">0</span>
+          </a>
+          <div id="navbar-auth-section"></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Banner -->
+  <header class="page-banner" style="background: linear-gradient(135deg, rgba(6, 16, 30, 0.85) 0%, rgba(10, 25, 47, 0.78) 100%), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;">
+    <div class="container text-center">
+      <span class="badge bg-gold text-dark mb-2 px-3 py-2 fw-bold text-uppercase tracking-wider">5-Star &amp; Heritage Properties</span>
+      <h1 class="page-banner-title">Luxury Hotels &amp; Resorts</h1>
+      <p class="text-white-50 mx-auto" style="max-width: 650px;">
+        Handpicked luxury palace hotels, beachfront resorts, overwater villas, and alpine retreats with verified amenities and transparent pricing.
+      </p>
+      <ul class="breadcrumb-akshar justify-content-center mt-3">
+        <li><a href="../index.html">Home</a></li>
+        <li class="active">Hotels</li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Main Hotels Directory -->
+  <main class="py-5">
+    <div class="container">
+      
+      <!-- Hotel Fast Search Bar -->
+      <div class="card border-0 shadow-sm rounded-4 p-4 mb-4 bg-white">
+        <form id="hotel-search-bar" onsubmit="event.preventDefault(); applyHotelFilters();">
+          <div class="row g-3 align-items-end">
+            <div class="col-md-3">
+              <label class="form-label small fw-bold text-navy"><i class="bi bi-geo-alt-fill text-danger me-1"></i> Destination / City</label>
+              <input type="text" id="hotel-filter-search" class="form-control" placeholder="e.g. Mumbai, Dubai, Paris..." oninput="applyHotelFilters()">
+            </div>
+            <div class="col-md-2">
+              <label class="form-label small fw-bold text-navy"><i class="bi bi-calendar-event text-primary me-1"></i> Check-In</label>
+              <input type="date" id="hotel-checkin" class="form-control">
+            </div>
+            <div class="col-md-2">
+              <label class="form-label small fw-bold text-navy"><i class="bi bi-calendar-check text-primary me-1"></i> Check-Out</label>
+              <input type="date" id="hotel-checkout" class="form-control">
+            </div>
+            <div class="col-md-2">
+              <label class="form-label small fw-bold text-navy"><i class="bi bi-people-fill text-gold me-1"></i> Guests</label>
+              <select class="form-select" id="hotel-guests">
+                <option value="1">1 Adult (Single)</option>
+                <option value="2" selected>2 Adults (Double)</option>
+                <option value="3">3 Adults (Triple)</option>
+                <option value="4">4+ Adults (Family)</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <button type="submit" class="btn btn-gold w-100 py-2">
+                <i class="bi bi-search me-1"></i> Check Hotel Availability
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="row g-4">
+        <!-- Sidebar Filters -->
+        <aside class="col-lg-3">
+          <div class="filter-card sticky-top" style="top: 90px; z-index: 10;">
+            <div class="filter-title">
+              <span><i class="bi bi-sliders text-gold me-2"></i>Filter Hotels</span>
+              <button class="btn btn-sm text-royal p-0" onclick="resetHotelFilters()">Reset</button>
+            </div>
+
+            <!-- Star Rating -->
+            <div class="filter-group">
+              <label class="filter-group-title">Star Rating</label>
+              <select id="hotel-filter-stars" class="form-select form-select-sm" onchange="applyHotelFilters()">
+                <option value="all" selected>All Ratings (4★ &amp; 5★)</option>
+                <option value="5">5-Star Luxury Palace / Resort</option>
+                <option value="4">4-Star Deluxe Hotel</option>
+              </select>
+            </div>
+
+            <!-- Country Filter -->
+            <div class="filter-group">
+              <label class="filter-group-title">Property Location</label>
+              <select id="hotel-filter-country" class="form-select form-select-sm" onchange="applyHotelFilters()">
+                <option value="all" selected>All Locations</option>
+                <option value="india">India Properties</option>
+                <option value="international">International Properties</option>
+              </select>
+            </div>
+
+            <!-- Price Range -->
+            <div class="filter-group">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <label class="filter-group-title mb-0">Max Nightly Rate</label>
+                <span class="fw-bold text-navy small" id="hotel-price-display">₹1,10,000</span>
+              </div>
+              <input type="range" class="form-range" id="hotel-filter-price" min="10000" max="110000" step="5000" value="110000" oninput="updateHotelPriceSlider(this.value)">
+              <div class="d-flex justify-content-between text-muted" style="font-size: 0.72rem;">
+                <span>₹10,000</span>
+                <span>₹1,10,000</span>
+              </div>
+            </div>
+
+            <!-- Popular Amenities Included -->
+            <div class="filter-group">
+              <label class="filter-group-title">Key Amenities</label>
+              <div class="d-flex flex-column gap-2 small text-secondary">
+                <div><i class="bi bi-check2 text-success me-1"></i> Swimming Pool</div>
+                <div><i class="bi bi-check2 text-success me-1"></i> Multi-cuisine Fine Dining</div>
+                <div><i class="bi bi-check2 text-success me-1"></i> Luxury Spa &amp; Wellness</div>
+                <div><i class="bi bi-check2 text-success me-1"></i> High-Speed Wi-Fi</div>
+                <div><i class="bi bi-check2 text-success me-1"></i> 24/7 Room Concierge</div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Hotels Grid Column -->
+        <div class="col-lg-9">
+          <!-- Toolbar -->
+          <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 p-3 bg-white rounded-3 border mb-4 shadow-sm">
+            <div>
+              <span class="fw-bold text-navy" id="hotels-results-count">22 Luxury Hotels Found</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <label class="small text-muted text-nowrap mb-0"><i class="bi bi-arrow-down-up me-1"></i>Sort By:</label>
+              <select class="form-select form-select-sm" id="hotel-sort-by" style="width: 190px;" onchange="applyHotelFilters()">
+                <option value="popularity" selected>Most Popular</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="rating">Highest Star Rating</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Hotels Grid Container -->
+          <div class="row g-4" id="hotels-grid">
+            <!-- Injected by js/hotels.js -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-akshar">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <img src="../assets/logos/logo-white.svg" alt="Akshar Tours &amp; Travels" height="48">
+          <p class="footer-brand-desc">
+            Your premier journey partner for domestic Indian escapes, international holiday packages, flight bookings, and luxury hotels.
+          </p>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h4 class="footer-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../packages/india.html">India Tours</a></li>
+            <li><a href="../packages/international.html">International Tours</a></li>
+            <li><a href="hotels.html">Hotels</a></li>
+            <li><a href="../about.html">About Us</a></li>
+            <li><a href="../contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h4 class="footer-title">Transportation</h4>
+          <ul class="footer-links">
+            <li><a href="../transport/flights.html">Flight Booking</a></li>
+            <li><a href="../transport/trains.html">Train Booking</a></li>
+            <li><a href="../transport/buses.html">Bus Booking</a></li>
+            <li><a href="../transport/cruises.html">Cruise Booking</a></li>
+            <li><a href="../booking/my-bookings.html">My Bookings</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h4 class="footer-title">Contact</h4>
+          <div class="footer-contact-item">
+            <i class="bi bi-geo-alt-fill"></i>
+            <div>C.G. Road, Navrangpura, Ahmedabad - 380009</div>
+          </div>
+          <div class="footer-contact-item">
+            <i class="bi bi-telephone-fill"></i>
+            <div>+91 79 2656 7890</div>
+          </div>
+          <div class="footer-contact-item">
+            <i class="bi bi-envelope-fill"></i>
+            <div>info@akshartours.com</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom text-center">
+        &copy; 2026 <strong>Akshar Tours &amp; Travels</strong>. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/hotels.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      syncNavbarAuth('../');
+
+      // Set default check-in date to tomorrow and check-out to 4 days later
+      const checkinInput = document.getElementById('hotel-checkin');
+      const checkoutInput = document.getElementById('hotel-checkout');
+      if (checkinInput && checkoutInput) {
+        const d1 = new Date();
+        d1.setDate(d1.getDate() + 3);
+        const d2 = new Date();
+        d2.setDate(d2.getDate() + 6);
+        checkinInput.value = d1.toISOString().split('T')[0];
+        checkoutInput.value = d2.toISOString().split('T')[0];
+      }
+
+      applyHotelFilters();
+    });
+
+    function updateHotelPriceSlider(val) {
+      document.getElementById('hotel-price-display').textContent = formatINR(val);
+      applyHotelFilters();
+    }
+
+    function applyHotelFilters() {
+      const searchKeyword = document.getElementById('hotel-filter-search')?.value.trim() || '';
+      const stars = document.getElementById('hotel-filter-stars')?.value || 'all';
+      const country = document.getElementById('hotel-filter-country')?.value || 'all';
+      const maxPrice = document.getElementById('hotel-filter-price')?.value || 110000;
+      const sortBy = document.getElementById('hotel-sort-by')?.value || 'popularity';
+
+      renderHotelsList('hotels-grid', {
+        searchKeyword,
+        stars,
+        country,
+        maxPrice,
+        sortBy,
+        pathPrefix: '../'
+      });
+    }
+  </script>
+</body>
+</html>

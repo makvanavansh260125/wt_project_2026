@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akshar Tours &amp; Travels | Premier Travel &amp; Holiday Management</title>
+  <meta name="description" content="Experience premium travel across India and worldwide with Akshar Tours & Travels. Customized tour packages, luxury hotels, flights, trains, buses, and cruise reservations.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/logos/logo.svg">
+  
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center">
+        <span class="contact-item"><i class="bi bi-telephone-fill"></i> +91 79 2656 7890</span>
+        <span class="contact-item"><i class="bi bi-envelope-fill"></i> info@akshartours.com</span>
+        <span class="contact-item d-none d-lg-inline"><i class="bi bi-geo-alt-fill"></i> C.G. Road, Ahmedabad, Gujarat</span>
+      </div>
+      <div class="d-flex align-items-center gap-3">
+        <span class="badge bg-gold text-dark fw-bold px-2 py-1"><i class="bi bi-award-fill me-1"></i> Govt. Recognized Agency</span>
+        <a href="admin/login.html" class="text-white-50 small"><i class="bi bi-shield-lock me-1"></i> Admin Portal</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-akshar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/logos/logo.svg" alt="Akshar Tours &amp; Travels" height="48">
+      </a>
+      
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="packages/india.html">India Tours</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="packages/international.html">International Tours</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="hotels/hotels.html">Hotels</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Transportation
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="transport/flights.html"><i class="bi bi-airplane-fill text-primary"></i> Flights</a></li>
+              <li><a class="dropdown-item" href="transport/trains.html"><i class="bi bi-train-front-fill text-danger"></i> Trains</a></li>
+              <li><a class="dropdown-item" href="transport/buses.html"><i class="bi bi-bus-front-fill text-success"></i> Buses</a></li>
+              <li><a class="dropdown-item" href="transport/cruises.html"><i class="bi bi-tsunami text-info"></i> Luxury Cruises</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact Us</a>
+          </li>
+        </ul>
+
+        <div class="d-flex align-items-center gap-3">
+          <!-- Wishlist shortcut -->
+          <a href="customer/dashboard.html#wishlist" class="wishlist-btn-nav" title="My Wishlist">
+            <i class="bi bi-heart fs-5"></i>
+            <span class="wishlist-badge wishlist-count-badge" style="display:none;">0</span>
+          </a>
+
+          <!-- Dynamic Auth Container -->
+          <div id="navbar-auth-section" class="d-flex align-items-center">
+            <!-- Injected by js/main.js -->
+            <a href="login.html" class="btn btn-outline-navy me-2" style="border: 1px solid var(--navy); color: var(--navy);">
+              <i class="bi bi-box-arrow-in-right me-1"></i> Login
+            </a>
+            <a href="register.html" class="btn btn-gold">
+              <i class="bi bi-person-plus me-1"></i> Register
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-content">
+      <div class="row align-items-center">
+        <div class="col-lg-10 mx-auto text-center">
+          <div class="hero-badge">
+            <i class="bi bi-compass text-gold"></i> Curated Journeys Crafted With Excellence
+          </div>
+          <h1 class="hero-title">
+            Discover Extraordinary Destinations with <span>Akshar Tours &amp; Travels</span>
+          </h1>
+          <p class="hero-desc mx-auto">
+            From the royal palaces of Rajasthan and golden sands of Dubai to snow-capped Swiss Alps and pristine backwaters of Kerala — experience hassle-free vacations with personalized itineraries and transparent pricing.
+          </p>
+
+          <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <a href="packages/india.html" class="btn btn-gold btn-lg px-4 py-3">
+              <i class="bi bi-pin-map-fill me-1"></i> Explore Indian Tours (30+ Packages)
+            </a>
+            <a href="packages/international.html" class="btn btn-outline-white btn-lg px-4 py-3">
+              <i class="bi bi-globe-americas me-1"></i> International Tours (25+ Packages)
+            </a>
+          </div>
+
+          <!-- Hero Search Box -->
+          <div class="hero-search-box text-start">
+            <div class="search-tabs">
+              <button class="search-tab-btn active" onclick="switchSearchTab('packages')">
+                <i class="bi bi-backpack-fill text-gold"></i> Tour Packages
+              </button>
+              <button class="search-tab-btn" onclick="switchSearchTab('hotels')">
+                <i class="bi bi-building"></i> Hotels
+              </button>
+              <button class="search-tab-btn" onclick="switchSearchTab('flights')">
+                <i class="bi bi-airplane-fill"></i> Flights
+              </button>
+              <button class="search-tab-btn" onclick="switchSearchTab('trains')">
+                <i class="bi bi-train-front-fill"></i> Trains
+              </button>
+              <button class="search-tab-btn" onclick="switchSearchTab('buses')">
+                <i class="bi bi-bus-front-fill"></i> Buses
+              </button>
+              <button class="search-tab-btn" onclick="switchSearchTab('cruises')">
+                <i class="bi bi-tsunami"></i> Cruises
+              </button>
+            </div>
+
+            <!-- Packages Form -->
+            <form id="hero-package-search-form" onsubmit="handleHeroSearch(event)">
+              <div class="row g-3 align-items-center">
+                <div class="col-md-4">
+                  <label class="form-label small fw-bold text-muted mb-1"><i class="bi bi-geo-alt-fill text-danger me-1"></i> Destination or Package Name</label>
+                  <input type="text" id="hero-search-kw" class="form-control" placeholder="e.g. Kashmir, Dubai, Kerala, Goa" required>
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label small fw-bold text-muted mb-1"><i class="bi bi-calendar3 text-primary me-1"></i> Travel Month</label>
+                  <select class="form-select" id="hero-search-month">
+                    <option value="any">Any Month</option>
+                    <option value="12">December 2026</option>
+                    <option value="01">January 2027</option>
+                    <option value="02">February 2027</option>
+                    <option value="03">March 2027</option>
+                    <option value="04">April 2027</option>
+                  </select>
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label small fw-bold text-muted mb-1"><i class="bi bi-currency-rupee text-success me-1"></i> Budget Range</label>
+                  <select class="form-select" id="hero-search-budget">
+                    <option value="all">Any Budget</option>
+                    <option value="20000">Under ₹20,000</option>
+                    <option value="40000">₹20,000 - ₹40,000</option>
+                    <option value="80000">₹40,000 - ₹80,000</option>
+                    <option value="150000">₹80,000 - ₹1,50,000</option>
+                    <option value="300000">Above ₹1,50,000</option>
+                  </select>
+                </div>
+                <div class="col-md-2 mt-md-4">
+                  <button type="submit" class="btn btn-gold w-100 py-2">
+                    <i class="bi bi-search me-1"></i> Search
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular Indian Destinations Section -->
+  <section class="py-5 bg-white">
+    <div class="container py-4">
+      <div class="text-center mb-5">
+        <span class="section-tag"><i class="bi bi-flag-fill"></i> Incredulous India</span>
+        <h2 class="section-title">Popular Indian Destinations</h2>
+        <div class="section-title-line center"></div>
+        <p class="section-subtitle mx-auto">Explore rich heritage, serene backwaters, snow-kissed Himalayan valleys, and golden beaches across India.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6">
+          <a href="packages/india.html?cat=Heritage" class="destination-card">
+            <img src="https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=600&auto=format&fit=crop" alt="Rajasthan">
+            <div class="destination-overlay">
+              <h4 class="destination-title">Rajasthan</h4>
+              <div class="destination-meta"><i class="bi bi-collection-fill"></i> 6 Royal Packages</div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <a href="packages/india.html?cat=Nature%20&%20Hill" class="destination-card">
+            <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=600&auto=format&fit=crop" alt="Kerala">
+            <div class="destination-overlay">
+              <h4 class="destination-title">Kerala</h4>
+              <div class="destination-meta"><i class="bi bi-collection-fill"></i> 4 Backwater Packages</div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <a href="packages/india.html?cat=Romantic" class="destination-card">
+            <img src="https://images.unsplash.com/photo-1595815771614-ade9d652a65d?q=80&w=600&auto=format&fit=crop" alt="Kashmir">
+            <div class="destination-overlay">
+              <h4 class="destination-title">Kashmir</h4>
+              <div class="destination-meta"><i class="bi bi-collection-fill"></i> 4 Paradise Packages</div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <a href="packages/india.html?cat=Beach" class="destination-card">
+            <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=600&auto=format&fit=crop" alt="Goa">
+            <div class="destination-overlay">
+              <h4 class="destination-title">Goa Beaches</h4>
+              <div class="destination-meta"><i class="bi bi-collection-fill"></i> 3 Coastal Packages</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular International Destinations Section -->
+  <section class="py-5 bg-light">
+    <div class="container py-4">
+      <div class="text-center mb-5">
+        <span class="section-tag"><i class="bi bi-globe2"></i> Worldwide Escapes</span>
+        <h2 class="section-title">Popular International Destinations</h2>
+        <div class="section-title-line center"></div>
+        <p class="section-subtitle mx-auto">From futuristic skylines to romantic turquoise islands, unlock your dream global vacation with complete visa assistance.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <a href="packages/package-details.html?id=INT-01" class="destination-card" style="height: 320px;">
+            <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=800&auto=format&fit=crop" alt="Dubai">
+            <div class="destination-overlay">
+              <span class="badge bg-gold text-dark mb-2" style="width:fit-content;">Best Seller</span>
+              <h3 class="destination-title">Dubai &amp; Abu Dhabi</h3>
+              <div class="destination-meta">From ₹58,000 / person | Flights Included</div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <a href="packages/package-details.html?id=INT-06" class="destination-card" style="height: 320px;">
+            <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=800&auto=format&fit=crop" alt="Maldives">
+            <div class="destination-overlay">
+              <span class="badge bg-info text-dark mb-2" style="width:fit-content;">Overwater Villa</span>
+              <h3 class="destination-title">Maldives</h3>
+              <div class="destination-meta">From ₹89,000 / person | All-Inclusive</div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <a href="packages/package-details.html?id=INT-07" class="destination-card" style="height: 320px;">
+            <img src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?q=80&w=800&auto=format&fit=crop" alt="Switzerland">
+            <div class="destination-overlay">
+              <span class="badge bg-danger text-white mb-2" style="width:fit-content;">Alpine Alps</span>
+              <h3 class="destination-title">Switzerland &amp; Titlis</h3>
+              <div class="destination-meta">From ₹1,45,000 / person | Swiss Pass</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="text-center mt-5">
+        <a href="packages/international.html" class="btn btn-navy px-4 py-2">
+          View All 25 International Packages <i class="bi bi-arrow-right ms-1"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Tour Packages (Dynamic Container) -->
+  <section class="py-5 bg-white">
+    <div class="container py-4">
+      <div class="d-flex justify-content-between align-items-end flex-wrap mb-4">
+        <div>
+          <span class="section-tag"><i class="bi bi-stars"></i> Handpicked Experiences</span>
+          <h2 class="section-title mb-1">Featured Tour Packages</h2>
+          <div class="section-title-line mb-0"></div>
+        </div>
+        <div class="mt-3 mt-md-0">
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-outline-navy active" id="btn-tab-india" onclick="toggleFeaturedTab('india')">Indian Tours</button>
+            <button type="button" class="btn btn-outline-navy" id="btn-tab-intl" onclick="toggleFeaturedTab('intl')">International Tours</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured Packages Grid -->
+      <div class="row g-4" id="featured-packages-grid">
+        <!-- Rendered dynamically by JavaScript -->
+      </div>
+
+      <div class="text-center mt-4">
+        <a href="packages/india.html" id="btn-see-more-packages" class="btn btn-gold px-4 py-2">
+          Explore All Indian Tour Packages <i class="bi bi-arrow-right ms-1"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Hotels Section -->
+  <section class="py-5 bg-light">
+    <div class="container py-4">
+      <div class="d-flex justify-content-between align-items-end flex-wrap mb-4">
+        <div>
+          <span class="section-tag"><i class="bi bi-building-check"></i> 5-Star Accommodations</span>
+          <h2 class="section-title mb-1">Featured Luxury Hotels</h2>
+          <div class="section-title-line mb-0"></div>
+        </div>
+        <a href="hotels/hotels.html" class="btn btn-outline-navy mt-3 mt-md-0">
+          View All 20+ Hotels <i class="bi bi-arrow-right ms-1"></i>
+        </a>
+      </div>
+
+      <!-- Featured Hotels Grid -->
+      <div class="row g-4" id="featured-hotels-grid">
+        <!-- Rendered dynamically by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Akshar Tours & Travels -->
+  <section class="py-5 bg-navy text-white position-relative">
+    <div class="container py-4 position-relative" style="z-index: 2;">
+      <div class="text-center mb-5">
+        <span class="section-tag bg-white text-navy"><i class="bi bi-award-fill text-gold"></i> The Akshar Advantage</span>
+        <h2 class="section-title text-white">Why Choose Akshar Tours &amp; Travels?</h2>
+        <div class="section-title-line center"></div>
+        <p class="text-white-50 mx-auto" style="max-width: 650px;">Over 25 years of crafting exceptional holidays with 100% transparency, personalized care, and award-winning customer support.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6">
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <i class="bi bi-tags-fill"></i>
+            </div>
+            <h4 class="fw-bold fs-5 text-navy mb-2">Best Price Guarantee</h4>
+            <p class="text-muted small mb-0">Direct contracts with premier airlines, hotel chains, and local operators ensure unbeatable value with zero hidden costs.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <i class="bi bi-sliders"></i>
+            </div>
+            <h4 class="fw-bold fs-5 text-navy mb-2">Tailor-Made Holidays</h4>
+            <p class="text-muted small mb-0">Customized day-wise itineraries, choice of transportation (Flight, Train, Bus, Cruise), and personalized sightseeing flexibility.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <i class="bi bi-headset"></i>
+            </div>
+            <h4 class="fw-bold fs-5 text-navy mb-2">24/7 Dedicated Support</h4>
+            <p class="text-muted small mb-0">Our dedicated tour managers and on-ground local coordinators accompany your journey from initial departure to safe return.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <i class="bi bi-shield-check"></i>
+            </div>
+            <h4 class="fw-bold fs-5 text-navy mb-2">100% Verified Bookings</h4>
+            <p class="text-muted small mb-0">Govt. accredited tourism agency with verified hotel rooms, guaranteed flight reservations, and transparent voucher generation.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Statistics Bar -->
+      <div class="row mt-5 pt-4 border-top border-white border-opacity-10 text-center">
+        <div class="col-6 col-md-3">
+          <div class="stat-number">25+</div>
+          <div class="stat-label">Years of Excellence</div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-number">55,000+</div>
+          <div class="stat-label">Delighted Travelers</div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-number">55+</div>
+          <div class="stat-label">Destinations Worldwide</div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-number">4.9 / 5</div>
+          <div class="stat-label">Customer Satisfaction Rating</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Testimonials Section -->
+  <section class="py-5 bg-white">
+    <div class="container py-4">
+      <div class="text-center mb-5">
+        <span class="section-tag"><i class="bi bi-chat-heart-fill"></i> Real Stories</span>
+        <h2 class="section-title">What Our Travelers Say</h2>
+        <div class="section-title-line center"></div>
+        <p class="section-subtitle mx-auto">Discover how Akshar Tours &amp; Travels created unforgettable memories for families, couples, and corporate travelers.</p>
+      </div>
+
+      <div class="row g-4" id="testimonials-grid">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Subscription Section -->
+  <section class="py-5 bg-royal text-white">
+    <div class="container">
+      <div class="row align-items-center justify-content-between g-4">
+        <div class="col-lg-6">
+          <span class="badge bg-gold text-dark fw-bold px-3 py-2 mb-2"><i class="bi bi-envelope-check-fill me-1"></i> Weekly Travel Digest</span>
+          <h2 class="fw-bold text-white mb-2">Get Up To 20% Off Secret Travel Deals</h2>
+          <p class="text-white-50 mb-0">Join over 35,000 smart travelers who receive our seasonal discounts, holiday packages, and early bird coupons.</p>
+        </div>
+        <div class="col-lg-5">
+          <form id="newsletter-form" class="d-flex gap-2">
+            <input type="email" class="form-control form-control-lg" placeholder="Enter your email address" required>
+            <button type="submit" class="btn btn-gold btn-lg px-4 text-nowrap">
+              Subscribe
+            </button>
+          </form>
+          <div class="text-white-50 small mt-2"><i class="bi bi-lock me-1"></i> We respect your privacy. Unsubscribe at any time.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-akshar">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Col 1: Brand -->
+        <div class="col-lg-4 col-md-6">
+          <img src="assets/logos/logo-white.svg" alt="Akshar Tours &amp; Travels" height="48">
+          <p class="footer-brand-desc">
+            Akshar Tours &amp; Travels is a premier travel and tour management company delivering world-class domestic and international holiday experiences, luxury hotel bookings, and comprehensive travel management.
+          </p>
+          <div class="social-links">
+            <a href="https://facebook.com" target="_blank" class="social-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://instagram.com" target="_blank" class="social-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://twitter.com" target="_blank" class="social-btn" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://youtube.com" target="_blank" class="social-btn" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="https://linkedin.com" target="_blank" class="social-btn" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="col-lg-2 col-md-6">
+          <h4 class="footer-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="bi bi-chevron-right"></i> Home</a></li>
+            <li><a href="packages/india.html"><i class="bi bi-chevron-right"></i> India Tour Packages</a></li>
+            <li><a href="packages/international.html"><i class="bi bi-chevron-right"></i> International Tours</a></li>
+            <li><a href="hotels/hotels.html"><i class="bi bi-chevron-right"></i> Luxury Hotels</a></li>
+            <li><a href="about.html"><i class="bi bi-chevron-right"></i> About Us</a></li>
+            <li><a href="contact.html"><i class="bi bi-chevron-right"></i> Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Transportation -->
+        <div class="col-lg-3 col-md-6">
+          <h4 class="footer-title">Transportation</h4>
+          <ul class="footer-links">
+            <li><a href="transport/flights.html"><i class="bi bi-airplane-fill"></i> Flight Booking</a></li>
+            <li><a href="transport/trains.html"><i class="bi bi-train-front-fill"></i> Train Reservations</a></li>
+            <li><a href="transport/buses.html"><i class="bi bi-bus-front-fill"></i> Luxury Bus Booking</a></li>
+            <li><a href="transport/cruises.html"><i class="bi bi-tsunami"></i> Ocean Cruise Packages</a></li>
+            <li><a href="booking/my-bookings.html"><i class="bi bi-ticket-perforated"></i> Track Booking Status</a></li>
+            <li><a href="admin/login.html"><i class="bi bi-shield-lock"></i> Administrator Login</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact & Support -->
+        <div class="col-lg-3 col-md-6">
+          <h4 class="footer-title">Head Office</h4>
+          <div class="footer-contact-item">
+            <i class="bi bi-geo-alt-fill"></i>
+            <div>Akshar House, 4th Floor, C.G. Road, Navrangpura, Ahmedabad - 380009, Gujarat, India</div>
+          </div>
+          <div class="footer-contact-item">
+            <i class="bi bi-telephone-fill"></i>
+            <div>+91 79 2656 7890 / +91 98250 12345</div>
+          </div>
+          <div class="footer-contact-item">
+            <i class="bi bi-envelope-fill"></i>
+            <div>info@akshartours.com / support@akshartours.com</div>
+          </div>
+          <div class="footer-contact-item">
+            <i class="bi bi-clock-fill"></i>
+            <div>Mon - Sat: 9:00 AM - 8:00 PM (IST)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom d-flex justify-content-between align-items-center flex-wrap gap-3">
+        <div>
+          &copy; 2026 <strong>Akshar Tours &amp; Travels</strong>. All Rights Reserved. Built with HTML5, CSS3, JavaScript &amp; Bootstrap 5.
+        </div>
+        <div class="d-flex gap-3">
+          <a href="terms.html" class="text-white-50">Terms &amp; Conditions</a>
+          <a href="privacy.html" class="text-white-50">Privacy Policy</a>
+          <a href="admin/login.html" class="text-white-50">Admin Access</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core App Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/packages.js"></script>
+  <script src="js/hotels.js"></script>
+
+  <!-- Page Inline Initialization -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Sync navbar auth status
+      syncNavbarAuth('');
+
+      // Render 6 featured Indian packages
+      renderFeaturedPackages('india');
+
+      // Render 3 featured hotels
+      renderFeaturedHotels();
+
+      // Render testimonials
+      renderHomeTestimonials();
+    });
+
+    let currentFeaturedTab = 'india';
+
+    function toggleFeaturedTab(tab) {
+      currentFeaturedTab = tab;
+      const btnIndia = document.getElementById('btn-tab-india');
+      const btnIntl = document.getElementById('btn-tab-intl');
+      const seeMoreBtn = document.getElementById('btn-see-more-packages');
+
+      if (tab === 'india') {
+        btnIndia.classList.add('active');
+        btnIntl.classList.remove('active');
+        seeMoreBtn.href = 'packages/india.html';
+        seeMoreBtn.innerHTML = 'Explore All Indian Tour Packages <i class="bi bi-arrow-right ms-1"></i>';
+        renderFeaturedPackages('india');
+      } else {
+        btnIntl.classList.add('active');
+        btnIndia.classList.remove('active');
+        seeMoreBtn.href = 'packages/international.html';
+        seeMoreBtn.innerHTML = 'Explore All International Tour Packages <i class="bi bi-arrow-right ms-1"></i>';
+        renderFeaturedPackages('international');
+      }
+    }
+
+    function renderFeaturedPackages(type) {
+      const container = document.getElementById('featured-packages-grid');
+      if (!container) return;
+
+      const packages = getPackages(type).slice(0, 6);
+      container.innerHTML = packages.map(p => createPackageCardHTML(p, '')).join('');
+    }
+
+    function renderFeaturedHotels() {
+      const container = document.getElementById('featured-hotels-grid');
+      if (!container) return;
+      const hotels = getHotels().slice(0, 3);
+      container.innerHTML = hotels.map(h => createHotelCardHTML(h, '')).join('');
+    }
+
+    function renderHomeTestimonials() {
+      const container = document.getElementById('testimonials-grid');
+      if (!container) return;
+      const testimonials = JSON.parse(localStorage.getItem('akshar_testimonials') || '[]');
+
+      container.innerHTML = testimonials.map(t => `
+        <div class="col-lg-4 col-md-6">
+          <div class="testimonial-card">
+            <div class="testimonial-quote-icon"><i class="bi bi-quote"></i></div>
+            <div class="d-flex text-gold mb-2">
+              ${Array(t.rating).fill('<i class="bi bi-star-fill me-1"></i>').join('')}
+            </div>
+            <p class="testimonial-text">"${t.comment}"</p>
+            <div class="testimonial-user mt-auto">
+              <img src="${t.avatar}" alt="${t.name}" class="testimonial-avatar">
+              <div>
+                <h5 class="testimonial-name mb-0">${t.name}</h5>
+                <div class="testimonial-location">${t.location} | <span class="text-primary">${t.packageTitle}</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function switchSearchTab(tabName) {
+      document.querySelectorAll('.search-tab-btn').forEach(b => b.classList.remove('active'));
+      event.target.closest('.search-tab-btn').classList.add('active');
+
+      if (tabName === 'hotels') {
+        window.location.href = 'hotels/hotels.html';
+      } else if (tabName === 'flights') {
+        window.location.href = 'transport/flights.html';
+      } else if (tabName === 'trains') {
+        window.location.href = 'transport/trains.html';
+      } else if (tabName === 'buses') {
+        window.location.href = 'transport/buses.html';
+      } else if (tabName === 'cruises') {
+        window.location.href = 'transport/cruises.html';
+      }
+    }
+
+    function handleHeroSearch(e) {
+      e.preventDefault();
+      const kw = document.getElementById('hero-search-kw').value.trim();
+      if (!kw) return;
+      window.location.href = `packages/india.html?search=${encodeURIComponent(kw)}`;
+    }
+  </script>
+</body>
+</html>
